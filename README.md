@@ -12,6 +12,7 @@ The following is a list of topics that will be covered over the course of this b
 *   [Webscraping](04-webscraping/)
 *   [Competitive Programming](05-competitive-programming/)
 *   [Machine Learning](06-machine-learning/)
+*   [Cyber Security](07-cyber-security/)
 
 ## Instructors
 
