@@ -2,6 +2,10 @@
 
 This is the repository for the **Coding Bootcamp** programming workshop organized by [ACM](https://github.com/acmbpdc)
 
+## Overview
+
+This bootcamp is intended to provide the audience with a foundation in using some important tools in the industry.
+
 ## Navigation
 
 The following is a list of topics that will be covered over the course of this bootcamp :
@@ -12,7 +16,7 @@ The following is a list of topics that will be covered over the course of this b
 *   [Webscraping](04-webscraping/)
 *   [Competitive Programming](05-competitive-programming/)
 *   [Machine Learning](06-machine-learning/)
-*   [Cyber Security](07-cyber-security/)
+*   [Web Development](07-web-development/)
 
 ## Instructors
 
