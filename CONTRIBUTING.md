@@ -23,16 +23,16 @@ Please adhere to the following details when making commits :
     git commit -m "This fixes the bug"
     ```
 
-*   If documents regarding a specific topic are being commited, use the following syntax :
+*   If documents regarding a specific session are being committed, use the following syntax :
 
     ```bash
-    git commit -m "[topic-folder-name-without-number] message"
+    git commit -m "[session-<num>] message"
     ```
 
     Example :
 
     ```bash
-    git commit -m "[cyber-security] Add topic"
+    git commit -m "[session-00] Add README"
     ```
 *   Always try to refer to GitHub issues, relating to the commit
 
