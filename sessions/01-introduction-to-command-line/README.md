@@ -1,12 +1,13 @@
 # Introduction to Command Line
 
+<!-- Please refer to this if you haven't https://github.com/jlevy/the-art-of-command-line?utm_campaign=explore-email&utm_medium=email&utm_source=newsletter&utm_term=daily -->
 A command line interface (CLI) is a means of interacting with a computer system where the user (or client) issues commands to the system in the form of successive lines of text (command lines).
 
 ---
 
 ## Motivation 
 
-Although they may seem archaic, command line interfaces are extremely practical :
+Although they may seem archaic, command line interfaces are extremely practical:
 
 *   Almost all major organizations use *powerful remote systems* that are 100 times faster than your average personal computer.
 
@@ -16,17 +17,21 @@ Although they may seem archaic, command line interfaces are extremely practical 
 
 *   Apart from its demand in the industry, command line expertise brings with it a *holistic idea about the operating system*.
 
-*   Command line also provides *greater control over a system* and various methods to *automate boring tasks*.
+*   Command line also provides *fine-grained control over a system* and various methods to *automate boring tasks*.
 
-Using the command line interface is very similar to solving a puzzle. With the right approach, anything is possible.
+Using the command line interface is very similar to solving a puzzle. With the right approach, anything is possible. You just need to know the right commands from a large toolbox.
 
 ---
 
 ## Environment
 
 Over the course of this workshop, we will work in a Linux environment.
+<!-- Explain Linux in brief. Link to Linux foundation/FOSS/FSF please -->
+<!-- Ellaborate that what will be taught in the following would be partially or completely inapplicable in windows shells. CMD and Powershell. https://github.com/PowerShell/PowerShell/blob/master/docs/learning-powershell/README.md -->
 
 The workspaces are mounted on a Telnet server, at `172.16.22.5`
+<!-- Friend please kindly let them know that the server is sitting right behind them -->
+<!-- At least mention that communications over telnet are in plaintext -->
 
 To connect to it:
 
@@ -44,19 +49,20 @@ To connect to it:
     telnet 172.16.22.5
     ```
 
-If you have followed the instructions, you would have successfully connected to the telnet server. Enter your credentials to access your workspace.
+If you have followed the above instructions, you would have successfully connected to the telnet server. Enter your credentials to access your workspace.
+<!-- Stress that they are accessing a linux system from within a windows computer/Mac OS -->
 
 Once successfully authenticated, you should see the following prompt :
 
 ```
 [username@linuxbpdc1 ~]$
 ```
-
+<!-- WHAT IS THIS DOLLAR FRIENDS??? -->
 ---
 
 ## Basics
 
-Use the `echo` command to print stuff
+Use the `echo` command to print stuff <!-- Contrast with printf maybe? -->
 
 ```bash
 echo "Hello, world."
@@ -92,6 +98,7 @@ When working with a GUI, we navigate across the filesystem using a file explorer
 *   Finder (macOS)
 
 The `pwd` command tells you the present working directory
+<!-- do not confuse with password: passwd -->
 
 ```bash
 pwd # If you ever got lost,`pwd` will tell you exactly where you are
@@ -123,6 +130,7 @@ cd .. # Changes pwd to its parent. You can confirm this using "pwd"
 ---
 
 We can look at the contents of a directory using `ls`
+<!-- Mention that ls means list/listing -->
 
 ```bash
 ls
@@ -164,7 +172,8 @@ To return to your `HOME` directory, run *ONE* of the following :
     cd ~ # ~ = $HOME
     ```
 
-Jump back to root and try all the above ways
+Jump back to root and try all the above options.
+<!-- https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi_xb_i3oXlAhWQFxQKHUKnBksQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.linux.com%2Ftutorials%2Flinux-filesystem-explained%2F&psig=AOvVaw18D7px0J7nfdIDlqqM5Bay&ust=1570386239637429 -->
 
 ```bash
 cd / # jumps back to root, since "/" is the absolute path for root
@@ -191,12 +200,14 @@ Now, create a file
 ```bash
 touch myfile.txt # creates a file named 'myfile.txt'
 ```
+<!-- Please explain finger command and other kinky commands friend -->
 
 You can use `ls` command to look at the details of this file
+<!-- Quiz: which command can detail the contents of the file -->
 
 A little about files:
 
-*   _All_ files contain data.
+*   _All_ files contain data. <!-- Quiz: What about empty files? -->
 *   Files are stored in the computer's _secondary memory_
 *   The file's data is stored in the form of _bytes_
 
@@ -207,7 +218,7 @@ For text files:
 *   When being rendered, _specific characters_ that match the bytes of these files are shown.
 *   Sometimes there are bytes that do not make sense so they don't get rendered properly.
 
-Most systems have in-built text editors. Let us use the `nano` editor
+Most systems have in-built text editors. Let us use the `nano` editor <!-- why not vim or emacs? -->
 
 ```bash
 nano myfile.txt # opens 'myfile.txt' with nano
@@ -289,7 +300,7 @@ When `/` is not specified at the end of the name of a directory, it renames the 
 mv billy.txt cats # renames billy.txt to cats.
 ```
 
-In this case the the 'cats' directory is unchanged but 'billy.txt' is renamed to 'cats'
+In this case the the 'cats' <!-- watch for peeps confusing with cat command --> directory is unchanged but 'billy.txt' is renamed to 'cats'
 
 To better visualize the contents of `pwd` use the `tree` command
 
@@ -408,5 +419,7 @@ Try to search for a particular command in your history
 ```
 history | grep "cd"
 ```
+
+<!-- Lastlog maybe? -->
 
 ## Summary
