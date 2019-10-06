@@ -90,6 +90,30 @@ man echo # This gives a manual about "echo" . Press 'q' to exit
 
 ---
 
+## Pipes & Redirection
+
+Two powerful features of the Linux command line shell are redirection and pipes which allow the output (or even input) of a program to be sent to a file or another program.
+
+*   Pipes
+
+    Pipes allow you to funnel the output from one command into another where it will be used as the input.
+
+    The following command will list all the files, with details
+    
+    ```bash
+    ls -la /dev | more
+    ```
+
+*   Redirection
+
+    Redirection is similar to pipes except using files rather than another program
+
+    Here is a directory listing again but this time redirected to a file called sample.txt
+
+    ```bash
+    ls -la > listing.txt
+    ```
+
 ## Navigation
 
 When working with a GUI, we navigate across the filesystem using a file explorer :
@@ -327,6 +351,23 @@ We can scale these operations to affect multiple files
 mkdir textfiles
 mv *.txt textfiles/ # This moves all files that have '.txt' as their extension into the directory 'textfiles'
 ```
+---
+
+To copy files involving remote machines, we use the command `scp`
+
+To copy file sample.txt from local machine to a remote machine
+
+```bash
+scp sample.txt username@remotemachine.com:/directory
+```
+
+To copy file sample.txt from a remote machine to a local machine
+
+```bash
+scp username@remotemachine.com:/sample.txt /directory
+```
+
+To copy entire folders, use the recursive argument `-r` 
 
 ## Permissions
 
@@ -374,6 +415,35 @@ chmod 777 cats # allows anyone (owner, group and rest) to do anything (read, wri
 ```
 
 The `chown` command can be used to change the ownership of a file but can only be called by `root`
+
+## System
+
+You will generally ssh into different machines and it is a good idea to look at the sytem specifications before executing any commands.
+
+You can use the `uname` command to display the basic software information like kernal name, version, hostname, release, architecture etc
+
+```bash
+uname -a # argument -a stands for list all
+```
+
+You can get the basic hardware, information use the command
+
+```bash
+sudo lshw # sudo permission is required to run this command
+```
+
+To get specific detailed hardware information, use the commands like
+
+```bash
+sudo lscpu # for cpu details
+```
+
+```bash
+sudo lsusb # for connected usb devices
+```
+
+```bash
+sudo lspci # for connected pci devices
 
 ## Miscellaneous
 
