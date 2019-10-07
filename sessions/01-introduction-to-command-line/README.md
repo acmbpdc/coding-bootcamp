@@ -25,6 +25,8 @@ Fluency on the command line is a skill which although considered arcane, improve
 
 Working on the command line interface is very similar to solving a simple puzzle. With the right approach, anything is possible. You just need to pick the right commands from a large toolbox.
 
+![Bob Code](./bob-code.jpg)
+
 ---
 
 ## Environment
@@ -64,6 +66,8 @@ Once *successfully authenticated*, you should see the following prompt:
 
 This is where we input commands.
 
+![Dark](dark.png)
+
 By default we are provided with a [Bash](https://www.gnu.org/software/bash/) terminal.
 
 >   #### Bash
@@ -81,6 +85,9 @@ Use the `echo` command to print stuff
 ```bash
 echo "Hello, world."
 ```
+
+![Stranger Things Wall](./stranger-things-wall.jpg)
+
 
 ```bash
 echo 'Single quotes also work'
@@ -109,7 +116,7 @@ Write single line comments with `#`
 
 #### `man`
 
-The `man` command gives the **man**ual for different commands
+The `man` command gives the manual for different commands
 
 ```bash
 man echo # This gives a manual about "echo" . Press 'q' to exit
@@ -150,6 +157,8 @@ It shows you:
 #### `who`
 
 There are many people logged in right now.
+
+![Team](team.jpeg)
 
 Use the `who` command to check them out.
 
@@ -204,6 +213,8 @@ You are currently in your `HOME` directory which is the equivalent of `Desktop` 
 >   *   `..` refers to the parent of `PWD`
 >   *   `/` refers to the root directory
 >   *   `~` refers to the `HOME` directory
+
+![Map](map.jpg)
 
 #### `cd`
 
@@ -425,6 +436,8 @@ To better visualize the contents of `PWD` use the `tree` command
 tree # displays the names of files and directories in the PWD in a recursive manner
 ```
 
+![Upside Down](./upsidedown.jpg)
+
 You can also use `-R` with `ls`
 
 ```bash
@@ -441,18 +454,18 @@ cp description.txt plot.txt # makes a copy of 'description.txt' and calls it 'pl
 
 Check if the contents of the two files are the same.
 
-Copy `demogorgon0.txt` into `hawkins` multiple times
+Copy `demogorgon0.txt` multiple times
 
 ```bash
-cp upsidedown/demogorgon0.txt hawkins/demogorgon1.txt
-cp upsidedown/demogorgon0.txt hawkins/demogorgon2.txt
-cp upsidedown/demogorgon0.txt hawkins/demogorgon3.txt
-cp upsidedown/demogorgon0.txt hawkins/demogorgon4.txt
+cp upsidedown/demogorgon0.txt upsidedown/demogorgon1.txt
+cp upsidedown/demogorgon0.txt upsidedown/demogorgon2.txt
+cp upsidedown/demogorgon0.txt upsidedown/demogorgon3.txt
+cp upsidedown/demogorgon0.txt upsidedown/demogorgon4.txt
 ```
 
 We can scale these operations to affect multiple files 
 
-Let's bring `will.txt` and `demogorogon.txt` both from the `upsidedown` to `hawkins`
+Let's bring `will.txt` and the `demogorogon0.txt` copies from the `upsidedown` to `hawkins`
 
 ```bash
 mv upsidedown/*.txt hawkins/
@@ -535,6 +548,8 @@ These characters represent the permissions for a particular entity.
 >       *   ***x*** for **execute** and is equivalent to *1*
 >
 >   A permission of *5* allows only *read* and *execute* (4 + 1 = 5).
+
+![Privacy](./privacy.jpeg)
 
 File permissions can be changed by:
 
@@ -644,42 +659,42 @@ We covered:
     *   [Connect](#connect)
     *   [Bash](#bash)
 *   [Basics](#basics)
-    *   [echo](#echo)
-    *   [printf](#printf)
+    *   [`echo`](#echo)
+    *   [`printf`](#printf)
     *   [Comment](#comment)
-    *   [man](#man)
+    *   [`man`](#man)
 *   [System](#system)
-    *   [uname](#uname)
+    *   [`uname`](#uname)
     *   [Flag](#flag)
-    *   [who](#who)
+    *   [`who`](#who)
 *   [Navigation](#navigation)
-    *   [pwd](#pwd)
+    *   [`pwd`](#pwd)
     *   [Directory](#directory)
     *   [Path](#path)
-    *   [cd](#cd)
-    *   [ls](#ls)
+    *   [`cd`](#cd)
+    *   [`ls`](#ls)
 *   [Data](#data)
-    *   [mkdir](#mkdir)
-    *   [touch](#touch)
+    *   [`mkdir`](#mkdir)
+    *   [`touch`](#touch)
     *   [File](#file)
-    *   [nano](#nano)
+    *   [`nano`](#nano)
     *   [Buffer](#buffer)
-    *   [cat](#cat)
-    *   [head](#head)
-    *   [tail](#tail)
-    *   [mv](#mv)
-    *   [tree](#tree)
-    *   [cp](#cp)
-    *   [rm](#rm)
-    *   [rmdir](#rmdir)
+    *   [`cat`](#cat)
+    *   [`head`](#head)
+    *   [`tail`](#tail)
+    *   [`mv`](#mv)
+    *   [`tree`](#tree)
+    *   [`cp`](#cp)
+    *   [`rm`](#rm)
+    *   [`rmdir`](#rmdir)
 *   [Privacy](#privacy)
     *   [Permission](#permission)
-    *   [chmod](#chmod)
-    *   [chown](#chown)
+    *   [`chmod`](#chmod)
+    *   [`chown`](#chown)
 *   [Miscellaneous](#miscellaneous)
-    *   [wc](#wc)
-    *   [grep](#grep)
+    *   [`wc`](#wc)
+    *   [`grep`](#grep)
     *   [Pipe](#pipe)
-    *   [history](#history)
-    *   [ps](#ps)
+    *   [`history`](#history)
+    *   [`ps`](#ps)
     *   [Redirection](#redirection)
