@@ -1,7 +1,20 @@
 # Introduction to Command Line
 
-<!-- Please refer to this if you haven't https://github.com/jlevy/the-art-of-command-line?utm_campaign=explore-email&utm_medium=email&utm_source=newsletter&utm_term=daily -->
 A command line interface (CLI) is a means of interacting with a computer system where the user (or client) issues commands to the system in the form of successive lines of text (command lines).
+
+---
+
+## Table of Contents
+
+*   [Motivation](#motivation)
+*   [Environment](#environment)
+*   [Basics](#basics)
+*   [Navigation](#navigation)
+*   [Pipes & Redirection](#pipes-&-redirection)
+*   [Files](#files)
+*   [Permissions](#permissions)
+*   [System](#system)
+*   [Summary](#summary)
 
 ---
 
@@ -26,43 +39,38 @@ Using the command line interface is very similar to solving a puzzle. With the r
 ## Environment
 
 Over the course of this workshop, we will work in a Linux environment.
-<!-- Explain Linux in brief. Link to Linux foundation/FOSS/FSF please -->
-<!-- Ellaborate that what will be taught in the following would be partially or completely inapplicable in windows shells. CMD and Powershell. https://github.com/PowerShell/PowerShell/blob/master/docs/learning-powershell/README.md -->
 
 The workspaces are mounted on a Telnet server, at `172.16.22.5`
-<!-- Friend please kindly let them know that the server is sitting right behind them -->
-<!-- At least mention that communications over telnet are in plaintext -->
 
 To connect to it:
 
-*   Open a terminal and run the following command if you are on a macOS, Linux or other Unix based system:
+*   Open a terminal and run the following command if you are on Linux, macOS or other Unix based system:
 
     ```bash
     telnet 172.16.22.5
     ```
 
-*   If you are on a Windows system :
+*   If you are on a Windows system:
     *   Ensure that the Telnet service is enabled by navigating to `Control Panel` > `Programs and Features` > `Turn Windows features on or off` > Check `Telnet Client`
-    *   Hit `Windows` + `R` and enter the following command :
+    *   Hit `Windows` + `R` and enter the following command:
     
     ```powershell
     telnet 172.16.22.5
     ```
 
 If you have followed the above instructions, you would have successfully connected to the telnet server. Enter your credentials to access your workspace.
-<!-- Stress that they are accessing a linux system from within a windows computer/Mac OS -->
 
-Once successfully authenticated, you should see the following prompt :
+Once successfully authenticated, you should see the following prompt:
 
 ```
 [username@linuxbpdc1 ~]$
 ```
-<!-- WHAT IS THIS DOLLAR FRIENDS??? -->
+
 ---
 
 ## Basics
 
-Use the `echo` command to print stuff <!-- Contrast with printf maybe? -->
+Use the `echo` command to print stuff
 
 ```bash
 echo "Hello, world."
@@ -70,6 +78,12 @@ echo "Hello, world."
 
 ```bash
 echo 'Single quotes also work'
+```
+
+You can also use the `printf` command to **print** _stuff_ **f**ormatted
+
+```bash
+printf "Hello\nWorld!"
 ```
 
 ---
@@ -82,7 +96,7 @@ Write single line comments with `#`
 
 ---
 
-Use the `man` command to describe commands
+The `man` command gives the **man**ual for different commands
 
 ```bash
 man echo # This gives a manual about "echo" . Press 'q' to exit
@@ -90,99 +104,93 @@ man echo # This gives a manual about "echo" . Press 'q' to exit
 
 ---
 
-## Pipes & Redirection
+Using `ls` we can look at the contents of a directory or **l**i**s**t it 
 
-Two powerful features of the Linux command line shell are redirection and pipes which allow the output (or even input) of a program to be sent to a file or another program.
+```bash
+ls
+```
 
-*   Pipes
+You can format the output using flags. Flags are options which are set to false by default. If specified, they change the working of a command. You will be using this command a lot so let's look into it in a bit more detail.
 
-    Pipes allow you to funnel the output from one command into another where it will be used as the input.
+The `-l` flag stands for **l**ong format
 
-    The following command will list all the files, with details
-    
-    ```bash
-    ls -la /dev | more
-    ```
+```bash
+ls -l # displays permissions, owner, size, last modified date, file name and much more!
+```
 
-*   Redirection
+In linux files whose names start with `.` are hidden, you can list **a**ll files using the `-a` flag
 
-    Redirection is similar to pipes except using files rather than another program
+```bash
+ls -a # displays all files (including hidden ones)
+```
 
-    Here is a directory listing again but this time redirected to a file called sample.txt
+The file sizes are shown in bytes by default. The `-h` flag prints sizes in **h**uman readable format
 
-    ```bash
-    ls -la > listing.txt
-    ```
+```bash
+ls -h # Sizes automatically adjusted to Kilobytes, Megabytes & Gigabytes
+```
+
+To **R**ecursively list files in a directory (including files in subdirectories) use the `-R` flag
+
+```bash
+ls -R # ls -aR lists all the files in a directory!
+```
+
+To print **one** entry per line use `-1` flag
+
+```bash
+ls -1 # numeric digit one
+```
+
+---
 
 ## Navigation
 
-When working with a GUI, we navigate across the filesystem using a file explorer :
+When working with a GUI, we navigate across the filesystem using a file explorer:
 
 *   File Explorer (Windows)
 *   Finder (macOS)
+*   Dolphin, Nautilus, Thunar and many others! (Linux)
 
-The `pwd` command tells you the present working directory
-<!-- do not confuse with password: passwd -->
+The `pwd` command allows you to **p**rint **w**orking **d**irectory
 
 ```bash
-pwd # If you ever got lost,`pwd` will tell you exactly where you are
+pwd # If you ever get lost,`pwd` will tell you exactly where you are
 ```
 ​
 You are currently in your `HOME` directory which is the equivalent of `Desktop` on PCs.
 
 ---
 
-All files and directories on a computer system have a unique path that describes their location :
+The root directory or sometimes just the root is the "highest" directory in the system. You can think of it as the start of a particular folder structure. All files and directories on a computer system have a unique path based on the root that describes their location:
 
 *   An **absolute path** refers to the same location in a file system relative to the *root directory*
-*   A **relative path** points to a specific location in a file system relative to the *present working directory*
+*   A **relative path** points to a specific location in a file system relative to the *working directory*
 
-Some important shorthand notations : 
+Some important shorthand notations: 
 
-*   `.` refers to the pwd
-*   `..` refers to the parent of pwd
+*   `.` refers to the working directory
+*   `..` refers to the parent of working directory
 *   `/` refers to the root directory
+*   `~` refers to the home directory
 
 ---
 
-The `cd` command changes the pwd to a specified path
+The `cd` command allows you to **c**hange **d**irectory
 
 ```bash
-cd .. # Changes pwd to its parent. You can confirm this using "pwd"
-```
-
----
-
-We can look at the contents of a directory using `ls`
-<!-- Mention that ls means list/listing -->
-
-```bash
-ls
-```
-
-You should be seeing all the `HOME` directories of students in your year
-
----
-
-You can format this output using flags
-
-```bash
-ls -l # formatted as a list
-```
-
-```bash
-ls -al # displays all files (including hidden ones) in a list format
+cd .. # Changes working directory to its parent. You can confirm this using "pwd"
 ```
 
 ---
 
-You can chain `..` switch to a directory that is an ancestor of the pwd
+You can chain `..` to climb up to a directory that is an ancestor of the working directory
 
 ```bash
-cd ../../.. # in this case , it takes you to the root directory
+cd ../../.. # in this case, it takes you to the root directory
 ```
 
-To return to your `HOME` directory, run *ONE* of the following :
+To return to your `HOME` directory, run *ONE* of the following:
 
 *   ```bash
     cd # not specifying a path teleports you back home
@@ -197,7 +205,6 @@ To return to your `HOME` directory, run *ONE* of the following :
     ```
 
 Jump back to root and try all the above options.
-<!-- https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi_xb_i3oXlAhWQFxQKHUKnBksQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.linux.com%2Ftutorials%2Flinux-filesystem-explained%2F&psig=AOvVaw18D7px0J7nfdIDlqqM5Bay&ust=1570386239637429 -->
 
 ```bash
 cd / # jumps back to root, since "/" is the absolute path for root
@@ -205,18 +212,44 @@ cd / # jumps back to root, since "/" is the absolute path for root
 
 ---
 
+## Pipes & Redirection
+
+Two powerful features of the Linux command line shell are redirection and pipes which allow the output (or even input) of a program to be sent to a file or another program.
+
+*   Pipes
+
+    Pipes allow you to funnel the output from one command into another where it will be used as the input.
+
+    The following command will list all the files, with details
+    
+    <!-- TODO: Explain more first -->
+    ```bash
+    ls -aR / | less
+    ```
+
+*   Redirection
+
+    Redirection is similar to pipes except using files rather than another program. Here is a directory listing again but this time redirected to a file
+
+    ```bash
+    ls -al > listing.txt
+    ```
+    <!-- Add input redirection -->
+
+---
+
 ## Files
 
-Once you are back home, create a directory
+Once you are back home, **m**a**k**e **dir**ectory to store files
 
 ```bash
-mkdir dirname # creates a directory named 'dirname' in the pwd
+mkdir session-1 # creates a directory named 'session-1' in the pwd
 ```
 
 Move into this new directory
 
 ```bash
-cd dirname
+cd session-1
 ```
 
 Now, create a file
@@ -227,11 +260,10 @@ touch myfile.txt # creates a file named 'myfile.txt'
 <!-- Please explain finger command and other kinky commands friend -->
 
 You can use `ls` command to look at the details of this file
-<!-- Quiz: which command can detail the contents of the file -->
 
 A little about files:
 
-*   _All_ files contain data. <!-- Quiz: What about empty files? -->
+*   _All_ files contain data <!-- Quiz: What about empty files? -->
 *   Files are stored in the computer's _secondary memory_
 *   The file's data is stored in the form of _bytes_
 
@@ -242,7 +274,7 @@ For text files:
 *   When being rendered, _specific characters_ that match the bytes of these files are shown.
 *   Sometimes there are bytes that do not make sense so they don't get rendered properly.
 
-Most systems have in-built text editors. Let us use the `nano` editor <!-- why not vim or emacs? -->
+Most systems have in-built text editors such as `vim` or `nano`. Let's first try `nano` since it is more user-friendly
 
 ```bash
 nano myfile.txt # opens 'myfile.txt' with nano
@@ -252,7 +284,7 @@ Type something in.
 
 The text that is shown are not the exact contents of the file. 
 This data is held by the `nano` editor as a buffer and is residing in the RAM of the system.
-To save the contents of the file :
+To save the contents of the file:
 
 *   Hit `Ctrl` + `X` to write the contents of the buffer into the file
 *   Hit `Y` to confirm and `Enter`
@@ -282,7 +314,7 @@ Similarly, you can display the last few lines with `tail`
 tail myfile.txt -n 8 # prints the last 8 lines of the file
 ```
 
-Create files with the following content :
+Create files with the following content:
 
 ```
 # billy.txt
@@ -303,28 +335,38 @@ You should have the following files and directories
 billy.txt  cats  dogs  myfile.txt  tommy.txt
 ```
 
-We can move files into specific directories.
-
-Try one of the following commands to move 'billy.txt' into 'cats' :
+We can move files into specific directories using the **m**o**v**e command
 
 *   ```bash
-    mv billy.txt cats/ # billy.txt is moved into the directory 'cats'
+    mv a.txt dir/   # Moves file with the same name into a directory named dir
+    ```
+
+*   ```bash
+    mv a.txt dir/b.txt # Moves file a.txt with the name b.txt into a directory named dir
+    ```
+
+*   ```bash
+    mv a.txt b.txt # Renames a.txt to b.txt, essentially the command mv a.txt ./b.txt
+    ```
+
+Try _one_ of the following commands to **m**o**v**e 'billy.txt' into 'cats':
+
+*   ```bash
+    mv billy.txt cats/ # billy.txt is moved into the directory 'cats' with the same name
     ```
 *   ```bash
     mv billy.txt cats/billy.txt # renames billy.txt as 'cats/billy.txt' and hence moves it into 'cats'
     ```
 
-Similarly, move 'tommy.txt' into 'dogs'
+Similarly, move 'tommy.txt' into 'dogs'.
 
-Be very careful when using the `mv` command :
-
-When `/` is not specified at the end of the name of a directory, it renames the source to the destination instead of moving it inside.
-
-```bash
-mv billy.txt cats # renames billy.txt to cats.
-```
-
-In this case the the 'cats' <!-- watch for peeps confusing with cat command --> directory is unchanged but 'billy.txt' is renamed to 'cats'
+> **Note:**
+>
+> When `/` is not specified at the end of the name of a directory, it renames the source to the destination instead of moving it inside.
+> ```bash
+> mv billy.txt cats # renames billy.txt to cats.
+> ```
+> In this case the `cats` directory is unchanged but `billy.txt` is renamed to `cats`.
 
 To better visualize the contents of `pwd` use the `tree` command
 
@@ -332,13 +374,13 @@ To better visualize the contents of `pwd` use the `tree` command
 tree # displays the names of files and directories in the pwd in a recursive manner
 ```
 
-We can create copies of files using the `cp` command :
+We can use the `cp` command to **c**o**p**y a file:
 
 ```bash
 cp myfile.txt yourfile.txt # makes a copy of 'myfile.txt' and calls it 'yourfile.txt'
 ```
 
-Copy 'billy.txt' and 'tommy.txt' into `pwd`
+Copy `billy.txt` and `tommy.txt` into `pwd`
 
 ```bash
 cp cats/billy.txt ./
@@ -351,6 +393,7 @@ We can scale these operations to affect multiple files
 mkdir textfiles
 mv *.txt textfiles/ # This moves all files that have '.txt' as their extension into the directory 'textfiles'
 ```
+
 ---
 
 To copy files involving remote machines, we use the command `scp`
@@ -358,16 +401,18 @@ To copy files involving remote machines, we use the command `scp`
 To copy file sample.txt from local machine to a remote machine
 
 ```bash
-scp sample.txt username@remotemachine.com:/directory
+scp sample.txt username@remotemachine.com:/path-to-directory
 ```
 
 To copy file sample.txt from a remote machine to a local machine
 
 ```bash
-scp username@remotemachine.com:/sample.txt /directory
+scp username@remotemachine.com:/path-to-source-file /path-to-destination-directory
 ```
 
-To copy entire folders, use the recursive argument `-r` 
+To copy entire folders, use the recursive argument `-r`
+
+---
 
 ## Permissions
 
@@ -386,12 +431,15 @@ You should see the following characters next to each entity in the directory
 drwxr-xr-x
 ```
 
-These characters represent the permissions for a particular entity :
+These characters represent the permissions for a particular entity:
 
 *   The first character describes the type of entity
-    *   ***d*** for **directory**
-    *   ***c*** for **charcater** special file
-    *   ***-*** for a **regular** file
+    *   **_-_** for a regular file
+    *   **_d_** for **d**irectory
+    *   **_b_** for **b**lock special file, disk or partition devices
+    *   **_c_** for **c**haracter special file (see /dev for examples)
+    *   **_l_** symbolic link
+    *   Others: **_p_**, **_s_**, **_D_** see [unix file types](https://en.wikipedia.org/wiki/Unix_file_types) for details.
 *   The next 9 characters are in fact 3 groups of characters that represent permissions for different users
     *   The *first 3* show the permissions for the **owner** of the file
     *   The *second 3* show the permissions for the **group** associated with that file
@@ -403,7 +451,7 @@ These characters represent the permissions for a particular entity :
 
 A permission of *5* allows only *read* and *execute* (4 + 1 = 5).
 
-File permissions can be changed by :
+File permissions can be changed by:
 
 *   The owner
 *   `root` i.e. any superuser
@@ -420,7 +468,7 @@ The `chown` command can be used to change the ownership of a file but can only b
 
 You will generally ssh into different machines and it is a good idea to look at the sytem specifications before executing any commands.
 
-You can use the `uname` command to display the basic software information like kernal name, version, hostname, release, architecture etc
+You can use the `uname` command to display the basic software information like kernel name, version, hostname, release, architecture etc
 
 ```bash
 uname -a # argument -a stands for list all
@@ -444,11 +492,14 @@ sudo lsusb # for connected usb devices
 
 ```bash
 sudo lspci # for connected pci devices
+```
+
+---
 
 ## Miscellaneous
 
 
-Use the `wc` command to count display :
+Use the `wc` command to count display:
 
 *   The number of lines
 *   The number of words
@@ -490,6 +541,6 @@ Try to search for a particular command in your history
 history | grep "cd"
 ```
 
-<!-- Lastlog maybe? -->
+---
 
 ## Summary
