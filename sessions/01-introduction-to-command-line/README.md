@@ -509,6 +509,13 @@ Give yourself a pat on the back. You saved `hawkins`
 
 ## Privacy
 
+#### `passwd`
+
+Right now, there isn't anything important on your system.
+It is still a good idea to update your login credentials.
+
+Use the `passwd` command to do so.
+
 View the details of the contents in the `PWD`
 
 ```bash
@@ -688,6 +695,7 @@ We covered:
     *   [`rm`](#rm)
     *   [`rmdir`](#rmdir)
 *   [Privacy](#privacy)
+    *   [`passwd`](#passwd)
     *   [Permission](#permission)
     *   [`chmod`](#chmod)
     *   [`chown`](#chown)
