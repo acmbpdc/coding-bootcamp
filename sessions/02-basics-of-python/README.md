@@ -1,9 +1,28 @@
 # Basics Of Python
 
+<p align="center"><img src="python-logo.png"></p>
+
 # Motivation
 
-Python is a high-level, interpreted, scripting language developed in the late 1980s by Guido van Rossum. Python is designed to be highly readable. Why choose python you may ask considering there are dozens of languages out there.
-<!-- TODO: Add Motivation, refer Real Python? https://realpython.com/python-introduction/ -->
+Python is a high-level, interpreted, scripting language developed in the late 1980s by Guido van Rossum. Python is designed to be highly readable. Why choose python you may ask considering there are dozens of languages out there, here's why:
+
+*	Python is **popular**
+
+	Python has grown in popularity in the last decade. The 2019 stack overflow developer survey ranks Python as the **4<sup>th</sup>** most popular language.
+
+	![](stackoverflow-developer-survey.png)
+
+*	Python is **interpreted**
+
+	Many languages are compiled, meaning the source code needs to be translated into a language your computer understands before it can be run. An interpreter skips this intermediate step and runs the program directly allowing a quicker development cycle. However, this can be a downside in some cases as interpreted languages tend to be slower.
+
+*	Python is **portable**
+
+	Since python is interpreted, code written for one platform will work on any other platform which has the interpreter installed.
+
+*	Python is highly **readable**
+
+	The code is simple, the syntax is easy to grasp and _very_ readable. Additionally, it supports highly complex tasks which would otherwise be difficult to implement.
 
 ---
 
@@ -119,13 +138,13 @@ You have already seen a few numbers. Number data types store numeric values. Pyt
 >>> c = -2.2 + 5.3j		# complex
 ```
 
-An integer is a whole number that can be positive, negative or zero.
+An **integer** is a whole number that can be positive, negative or zero.
 
-A floating point number contains one fractional part after the decimal point.
+A **floating point** number contains one fractional part after the decimal point.
 
-A complex number is any number that can be written as _a + bi_, where _i_ is the imaginary unit and _a_ & _b_ are real numbers.
+A **complex** number is any number that can be written as _a + bi_, where _i_ is the imaginary unit and _a_ & _b_ are real numbers.
 
-In python, there is no limit to how long an integer value can be
+In python, there is no limit to how long an `int` value can be
 
 ```python
 >>> 12121212121212121212121212121212121212121212121212121212121212121212121 + 1
@@ -143,7 +162,15 @@ Boolean type may have one of two values, `True` or `False`.
 >>> b = False	# bool
 ```
 
-<!-- Explain which values are True and which are False? -->
+> The following elements are false:
+> *	`False`
+> *	`None`
+> *	_0_ (whatever type i.e, `int`, `float` or `complex`)
+> *	Empty collections: `""`, `()`, `[]`, `{}`
+> * Objects from classes that have the special method `__nonzero__`
+> *	Objects from classes that implements `__len__` to return `False` or _0_
+>
+> All values besides these are considered `True` in Python.
 
 ---
 
@@ -212,12 +239,12 @@ Generally, you'll be using binary operators
 
 The numbers 4, 5 and 15 are of type `int`, i.e, integer. The number 4.0 has a fractional part and is of type `float`.
 
-By default, the division `/` returns a float. To get an integer result (discard fractional part) called **floor division**, you can use the `//` operator
+By default, the division `/` returns a `float`. To get an integer result (discard fractional part) called **floor division**, you can use the `//` operator
 
 ```python
->>> 11 / 4		# floating point division
+>>> 11 / 4	# floating point division
 2.75
->>> 11 // 4		# floor division
+>>> 11 // 4	# floor division
 2
 ```
 
@@ -247,7 +274,7 @@ There are 2 more arithmetic operators
 
 ## Comparison Operators
 
-Comparison operators compare values on either sides, these are also called relational operators.
+Comparison operators compare values on either sides, these are also called **relational** operators.
 
 ```python
 >>> 5 == 5	# (a == b) returns True if a is equal to b else False
@@ -302,42 +329,78 @@ There are more types of operators, but for now these will suffice. You can read 
 
 ---
 
-# Conditional Statements
+# Control Flow
 
 ## if Statement
 
-`if` statements are used for decision making. It will run the body of code only _if_ the condition is true
+`if` statements are used for decision making. It will run the body of code only `if` the condition is true. It has the following syntax
 
 ```python
->>> age = 21
->>> if age < 4:
-...     print("Join nursery")
-... elif age < 18:
-...     print("Stay in school")
-... elif age < 24:
-...     print("Word hard in university")
-... elif age < 60:
-...     print("Get working")
-... else:
-...     print("Time to retire")
-... 
-Word hard in university
+if <expression>:
+	<statement>
 ```
 
-There can be 0 or more `elif` parts and the `else` part is optional. The keyword `elif` is short for _else if_. At most, one of the code blocks will be executed. If an `else` clause isn't included, and all the conditions are false, then none of the blocks will be executed.
+> Note the use of colon `:` after the `<expression>`.
 
-The conditional expression (also known as a ternary operator)
+_If_ `<expression>` is true, then `<statement>` is executed. _If_ `<expression>` is false, then `<statement>` is skipped over and _not_ executed.
+
 
 ```python
 >>> raining = True
->>> "Stay at home" if raining else "Go outside"
-'Stay at home'
+>>> if raining:		# the condition is True
+...     print("Stay at home")
+... 
+Stay at home
 ```
 
-As you can see from above, the conditional expression has the following syntax
+Say you _also_ want to execute a block of code `if` the condition is not true, here comes `else` to the rescue
+
+```python
+>>> raining = False
+>>> if raining:		# the condition is False
+...     print("Stay at home")
+... else:
+...     print("Let's go outside")
+... 
+Let's go outside
+```
+
+If you have multiple separate conditions, use `elif`
+
+```python
+>>> age = 21
+>>> if age < 4:		# False
+...     print("Join nursery")
+... elif age < 18:	# False
+...     print("Stay in school")
+... elif age < 24:	# True!
+...     print("Work hard in university")
+... elif age < 60:	# skips
+...     print("Get working")
+... else:			# skips
+...     print("Time to retire")
+... 
+Work hard in university
+```
+
+> There can be 0 or more `elif` parts and the `else` part is optional. 
+>
+> The keyword `elif` is short for _else if_. 
+>
+> At most, one of the code blocks will be executed. If an `else` clause isn't included, and all the conditions are `False`, then none of the blocks will be executed.
+
+Python also has the conditional expression (also known as a ternary operator) which has the following syntax
 
 ```python
 A if condition else B
+```
+
+Often you can use the conditional expression to make your `if` statement concise
+
+```python
+>>> raining = True
+>>> "Stay at home" if raining else "Let's go outside"
+'Stay at home'
 ```
 
 ---
@@ -348,7 +411,7 @@ Loops execute a block of code number of times as long as a condition is met. The
 
 ```python
 >>> i = 0
->>> while i < 5:
+>>> while i < 5:	# loop over numbers from 0 through 4
 ...     print(i)
 ...     i += 1
 ... 
@@ -359,6 +422,38 @@ Loops execute a block of code number of times as long as a condition is met. The
 4
 ```
 
+If you want to exit your loop in case a certain condition is met, you can use `break`
+
+```python
+>>> i = 0
+>>> while i < 5:
+...     if i == 3:	# breaks the loop when i = 3
+...         break
+...     print(i)
+...     i += 1
+... 
+0
+1
+2
+```
+
+If you don't want to exit the loop but want to skip the code block execution in case a certain condition is met, you can use `continue`
+
+```python
+>>> i = 0
+>>> while i < 5:
+...     if i == 3:	# skips the rest of the code block when i = 3
+...			i += 1	# causes an infinite loop otherwise!
+...         continue
+...     print(i)
+...     i += 1
+... 
+0
+1
+2
+4
+```
+
 ---
 
 ## for Loop
@@ -366,7 +461,7 @@ Loops execute a block of code number of times as long as a condition is met. The
 The `for` loop iterates over the items of any sequence in the order they appear. Unlike the `while` loop which depends on a condition being met, `for` loop depends on the elements it has to iterate.
 
 ```python
->>> for c in "python":
+>>> for c in "python":	# loop over a sequence of elements
 ...     print(c)
 ... 
 p
@@ -377,10 +472,10 @@ o
 n
 ```
 
-To loop over a list of numbers, use the `range` function
+To loop over numbers, use the `range` function
 
 ```python
->>> for i in range(5):
+>>> for i in range(5):	# loop over numbers from 0 through 4
 ...     print(i)
 ... 
 0
@@ -396,12 +491,12 @@ The `range` function generates a sequence of numbers over time. The sytax of a `
 range([start,] end [,step])
 ```
 
-*	start (optional) Starting point of the sequence, defaults to 0
+*	start (_optional_) Starting point of the sequence, defaults to **0**
 *	stop (required) Endpoint of the sequence, **non-inclusive**
-*	step (optional) Step size of the sequence, defaults to 1
+*	step (_optional_) Step size of the sequence, defaults to **1**
 
 ```python
->>> for i in range(1, 10, 2):
+>>> for i in range(1, 10, 2):	# loop over numbers from 0 through 9 picking every 2nd value
 ...     print(i)
 ... 
 1
@@ -417,7 +512,7 @@ range([start,] end [,step])
 
 ## Lists
 
-Lists are a collection of arbitrary objects, similar to arrays in other programming languages. Lists are defined by enclosing a comma-separated sequence of objects in square brackets `[]`
+A `list` is a collection of arbitrary objects, similar to arrays in other programming languages. A `list` is defined by enclosing a comma-separated sequence of objects in square brackets `[]`
 
 ```python
 >>> squares = [1, 4, 9, 16, 25]	# list of numbers
@@ -425,7 +520,15 @@ Lists are a collection of arbitrary objects, similar to arrays in other programm
 >>> variety = [3, 'jacob', 2.718, True, [9, 8, 7]] # list of varying data types
 ```
 
-To understand accessing elements of lists, it is very important to understand the concept of slicing.
+One useful function is getting the length of a `list`
+
+```python
+>>> squares = [1, 4, 9, 16, 25]
+>>> len(squares)	# returns the number of elements in the list
+5
+```
+
+To understand accessing elements of a `list`, it is very important to understand the concept of slicing.
 
 ![](./slicing.png)
 
@@ -433,13 +536,6 @@ To understand accessing elements of lists, it is very important to understand th
 >>> my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>> #          0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 ... #        -10,-9,-8,-7,-6,-5,-4,-3,-2,-1
-```
-
-One useful function is getting the length of the list
-
-```python
->>> len(my_list)
-10
 ```
 
 In python, you can use both +ve and -ve indices to access elements
@@ -459,15 +555,15 @@ In python, you can use both +ve and -ve indices to access elements
 0
 ```
 
-But say you want to get a range of elements, we use the following syntax
+But say you want to get a `range` of elements, we use the following syntax
 
 ```python
 list[start:end:step]
 ```
 
-*	start - Starting position of range, defaults to 0
-*	end - Ending position of range, **non-inclusive**, defaults to size of list
-*	step - Step size, defaults to 1
+*	start - Starting position of `range`, defaults to **0**
+*	end - Ending position of `range`, **non-inclusive**, defaults to **length** of `list`
+*	step - Step size, defaults to **1**
 
 ```python
 >>> my_list[0:5]	# 1st element from the front till the 4th element from the front
@@ -480,7 +576,7 @@ list[start:end:step]
 [3, 4, 5, 6, 7]
 ```
 
-Since end is non-inclusive, how do you get till the end of the list?
+Since end is non-inclusive, how do you get till the end of a `list`?
 
 ```python
 >>> my_list[1:9]		# Does not work
@@ -502,7 +598,7 @@ This also works for the beginning
 [0, 1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-You can also drop both start and end to get the entire list
+You can also drop both start and end to get the entire `list`
 
 ```python
 >>> my_list[:]	# The entire range
@@ -527,14 +623,14 @@ The value of step can also be -ve which will run in reverse
 [8, 6, 4, 2]
 ```
 
-Using step you can reverse the entire list
+Using step you can reverse the entire `list`
 
 ```python
-my_list[::-1]	# get the entire list and pick every 1st element in reverse
+>>> my_list[::-1]	# get the entire list and pick every 1st element in reverse
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
-Now that you have an understanding of lists, let's now see some built-in functions
+Now that you have an understanding of `list`, let's now see some built-in functions
 
 The `in` and `not in` operators
 
@@ -547,14 +643,14 @@ True
 True
 ```
 
-You can concatenate two lists by using the `+` operator
+You can concatenate two `list` objects by using the `+` operator
 
 ```python
 >>> [0, 1, 2] + [3, 4, 5] # concatenates the 2 lists
 [0, 1, 2, 3, 4, 5]
 ```
 
-You can repeat the list by using the `*` operator
+You can repeat a `list` by using the `*` operator
 
 ```python
 >>> [0, 1, 2] * 3	# repeats list [0, 1, 2] 3 times and concatenates
@@ -574,7 +670,7 @@ You can also use mathematical functions
 45
 ```
 
-Keep in mind that lists can also be nested
+Keep in mind that a `list` can also be nested
 
 ```python
 >>> l = [[0, 1, 2], ['zainab', 'rahul', 'james']] # l comprises of 2 nested lists
@@ -586,7 +682,9 @@ Keep in mind that lists can also be nested
 [2, 1, 0]
 ```
 
-One fundamental concept of lists is that they are mutable. This means you can change values in a list, elements can be added, deleted, shifted and moved around at will.
+One fundamental concept of `list` is that it is mutable. This means you can change values in a `list`, elements can be added, deleted, shifted and moved around at will.
+
+> A **mutable** object can be modified after it is created. In contrast, an **immutable** object is one whose state cannot be modified after it is created.
 
 We will use the following example
 
@@ -602,7 +700,7 @@ To modify a single value
 ['pug', 'bulldog', 'poodle', 'shiba inu', 'chow chow']
 ```
 
-Or modify a range of values
+Or modify a `range` of values
 
 ```python
 >>> dogs[:3] = ['retriever', 'husky', 'terrier'] # modify all elements in range(0, 3)
@@ -610,7 +708,7 @@ Or modify a range of values
 ['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow']
 ```
 
-You can `append` elements at end of the list
+You can `append` elements at end of a `list`
 
 ```python
 >>> dogs.append('boxer') # add 'boxer' at end of the list
@@ -624,6 +722,9 @@ Or `insert` at a specific index
 >>> dogs.insert(2, 'papillon')	# insert 'papillion' at position 2
 >>> dogs
 ['retriever', 'husky', 'papillon', 'terrier', 'shiba inu', 'chow chow', 'boxer']
+>>> dogs.insert(-1, 'maltese')	# negative indices also work
+>>> dogs
+['retriever', 'husky', 'papillon', 'terrier', 'shiba inu', 'chow chow', 'maltese', 'boxer']
 ```
 
 To delete a single value
@@ -631,10 +732,13 @@ To delete a single value
 ```python
 >>> del dogs[2]		# delete element at position 2
 >>> dogs
+['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow', 'maltese', 'boxer']
+>>> del dogs[-2]	# negative indices also work
+>>> dogs
 ['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow', 'boxer']
 ```
 
-Or delete a range of values
+Or delete a `range` of values
 
 ```python
 >>> del dogs[:3]	# delete all elements in the range(0, 3)
@@ -642,7 +746,7 @@ Or delete a range of values
 ['shiba inu', 'chow chow', 'boxer']
 ```
 
-One neat property of lists is unpacking
+One neat property of a `list` is unpacking
 
 ```python
 >>> student = ['Neha', 19, 2019]	# list packing
@@ -660,14 +764,16 @@ Traceback (most recent call last):
 ValueError: not enough values to unpack (expected 4, got 3)
 ```
 
-You can convert a string to a list using type casting. Casting refers to converting one data type into another
+You can convert an `str` object or a string to a `list` using type casting 
 
 ```python
 >>> list("python")	# breaks the string into a list of characters
 ['p', 'y', 't', 'h', 'o', 'n']
 ```
 
-We can use type casting to better understand the range function
+> Type casting or type coercion refers to converting one data type into another.
+
+We can use type casting to better understand the `range` function
 
 ```python
 >>> list(range(5))		# returns a list of elements from 0 to 4
@@ -676,7 +782,7 @@ We can use type casting to better understand the range function
 [1, 3, 5, 7, 9]
 ```
 
-To iterate over a list
+To iterate over a `list`
 
 ```python
 >>> animals = ['lion', 'cat', 'panda', 'dog']
@@ -693,12 +799,12 @@ dog
 
 ## Tuples
 
-Tuples are identical to lists in all respects, except for the following properties:
+A `tuple` is identical to a `list` in all respects, except for the following properties:
 
-*	Tuples are defined using parenthesis `()` instead of square brackets `[]`
-*	Tuples are immutable
+*	A `tuple` is defined using parenthesis `()` instead of square brackets `[]` as in a `list`
+*	A `tuple` is immutable
 
-Why use tuples over lists?
+Why use a `tuple` over `list`?
 
 *	Faster execution
 *	Data remains constant
@@ -719,7 +825,7 @@ Why use tuples over lists?
 (9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 ```
 
-Since they are immutable, you cannot change their values
+Since they are immutable, you _cannot_ change their values
 
 ```python
 >>> my_tuple[0] = 10		# error
@@ -728,7 +834,7 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-To iterate over a tuple
+To iterate over a `tuple`
 
 ```python
 >>> levels = ('preschool', 'elementary', 'intermediate', 'senior high', 'university')
@@ -749,18 +855,18 @@ We can now try to see `enumerate` function
 ((0, 'preschool'), (1, 'elementary'), (2, 'intermediate'), (3, 'senior high'), (4, 'university'))
 ```
 
-The default starting value for the counter is 0 in `enumerate`. However, you can specify a different starting value
+The default starting value for the counter is **0** in `enumerate`. However, you can specify a different starting value
 
 ```python
 >>> tuple(enumerate(levels, 100))	# starts the counter from 100
 ((100, 'preschool'), (101, 'elementary'), (102, 'intermediate'), (103, 'senior high'), (104, 'university'))
 ```
 
-Using tuple unpacking we can loop through with `enumerate`
+Using `tuple` unpacking we can loop through with `enumerate`
 
 ```python
 >>> levels = ('preschool', 'elementary', 'intermediate', 'senior high', 'university')
->>> for index, level in enumerate(levels):
+>>> for index, level in enumerate(levels):	# loop through a sequence of elements with tuple unpacking
 ...     print(index, level)
 ... 
 0 preschool
@@ -774,38 +880,38 @@ Using tuple unpacking we can loop through with `enumerate`
 
 ## Dictionaries
 
-A dictionary is a collection of key-value pairs. The key is a unique identifier that is mapped to a value, almost like a real-world dictionary where each word is a key and the definition is the value. You can define a dictionary using curly braces `{}`, a colon `:` separates each key from its value
+A dictionary is a collection of key-value pairs. The key is a _unique_ identifier that is mapped to a value, almost like a real-world dictionary where each word is a key and the definition is the value. You can define a dictionary using curly braces `{}`, a colon `:` separates each key from its value
 
 ```python
->>> student = {'name': 'Rahul', 'age': 21, 'courses': ['CS', 'Chem', 'TRW', 'Bio']}
+>>> student = {'name': 'Rahul', 'age': 21, 'courses': ['CS', 'Chem', 'TRW', 'Bio']}	# dict
 ```
 
-We access values of a dictionary similar to lists but instead of specifying the position (which doesn't make much sense in a dictionary), we specify the key
+We access values of a `dict` similar to a `list` but instead of specifying the position (which doesn't make much sense in a dictionary), we specify the key
 
 ```python
->>> student['name']
+>>> student['name']		# accessing the key 'name'
 'Caleb'
->>> student['age']
+>>> student['age']		# accessing the key 'age'
 25
->>> student['courses']
+>>> student['courses']	# accessing the key 'courses'
 ['CS', 'Chem', 'TRW', 'Bio']
 ```
 
 If the key, does not exist it will throw an error, a better way is to use the `get` method
 
 ```python
->>> student['idno']
+>>> student['idno']		# error
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'idno'
->>> print(student.get('idno'))
+>>> print(student.get('idno'))	# returns None if key does not exist
 None
 ```
 
 Adding an entry is as easy as assigning a new key and a value
 
 ```python
->>> student['idno'] = '2019A7PS0903U'
+>>> student['idno'] = '2019A7PS0903U'	# updates the value if key exists else creates a new key with value
 >>> student
 {'name': 'Caleb', 'age': 25, 'courses': ['CS', 'Chem', 'TRW', 'Bio'], 'idno': '2019A7PS0903U'}
 ```
@@ -813,15 +919,15 @@ Adding an entry is as easy as assigning a new key and a value
 To delete an entry
 
 ```python
->>> del student['idno']
+>>> del student['idno']	# delete key-value pair with key 'idno'
 >>> student
 {'name': 'Caleb', 'age': 25, 'courses': ['CS', 'Chem', 'TRW', 'Bio']}
 ```
 
-We can have a variety of keys and values just like in lists or tuples as long as the keys are of immutable data type
+We can have a variety of keys and values just like in a `list` or `tuple` as long as the _keys_ are of immutable data type
 
 ```python
->>> variety = {13: 'prime', 'constants': [3.14, 2.718, 1.618], (1 + 4.2j): True}
+>>> variety = {13: 'prime', 'constants': [3.14, 2.718, 1.618], (1 + 4.2j): True}	# dict of varying data types
 ```
 
 Let's now look at some built-in methods. We'll use the following example
@@ -833,19 +939,19 @@ Let's now look at some built-in methods. We'll use the following example
 Some common methods
 
 ```python
->>> letters.items()	# returns the key-value pairs of a dictionary
+>>> letters.items()	# returns the key-value pairs of dict
 dict_items([(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e')])
->>> letters.keys()	# returns the keys of a dictionary
+>>> letters.keys()	# returns the keys of dict
 dict_keys([0, 1, 2, 3, 4])
->>> letters.values()	# returns the values of a dictionary
+>>> letters.values()	# returns the values of dict
 dict_values(['a', 'b', 'c', 'd', 'e'])
 ```
 
-Using the `items` method and tuple unpacking, we can loop through a dictionary
+Using the `items` method and `tuple` unpacking, we can loop through a `dict`
 
 ```python
 >>> letters = {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e'}
->>> for key, value in letters.items():
+>>> for key, value in letters.items():	# loop through a sequence of elements with tuple unpacking
 ...     print(key, value)
 ... 
 0 a
@@ -863,10 +969,10 @@ To merge a dictionary using another dictionary
 {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5: 'f', 6: 'g', 7: 'h'}
 ```
 
-To empty a dictionary
+To empty a `dict`
 
 ```python
->>> letters.clear()
+>>> letters.clear()	# delete all key-value pairs in dict
 >>> letters
 {}
 ```
@@ -891,7 +997,7 @@ We covered:
 	*	[Comparison Operators](#comparison-operators)
 	*	[Assignment Operators](#assignment-operators)
 	*	[Logical Operators](#logical-operators)
-*	[Conditional Statements](#conditional-statements)
+*	[Control Flow](#control-flow)
 	*	[if Statement](#if-statement)
 	*	[while Loop](#while-loop)
 	*	[for Loop](#for-loop)
