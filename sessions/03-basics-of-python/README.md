@@ -4,20 +4,23 @@
 
 # Lists
 
+<p align="center"><img src="horcruxes.jpg"></p>
+
+
 A `list` is a collection of arbitrary objects, similar to arrays in other programming languages. A `list` is defined by enclosing a comma-separated sequence of objects in square brackets `[]`
 
 ```python
 >>> squares = [1, 4, 9, 16, 25]	# list of numbers
->>> names 	= ['rahul', 'mary', 'abdul', 'harshita'] # list of strings
->>> variety = [3, 'jacob', 2.718, True, [9, 8, 7]] # list of varying data types
+>>> names 	= ['harry', 'ron', 'hermione', 'ginny'] # list of strings
+>>> variety = [3, 'slytherin', 2.718, True, [9, 8, 7]] # list of varying data types
 ```
 
-One useful function is getting the length of a `list`
+The `len` function returns the length of a `list`
 
 ```python
->>> squares = [1, 4, 9, 16, 25]
->>> len(squares)	# returns the number of elements in the list
-5
+>>> horcruxes = ["diary", "ring", "cup", "locket", "diadem", "snake", "boy"]
+>>> len(horcruxes)	# returns the number of elements in the list
+7
 ```
 
 To understand accessing elements of a `list`, it is very important to understand the concept of slicing.
@@ -35,9 +38,9 @@ In python, you can use both +ve and -ve indices to access elements
 ```python
 >>> my_list[0]		# 1st element from the front
 0
->>> my_list[5]		# 5th element from the front
+>>> my_list[5]		# 6th element from the front
 5
->>> my_list[9]		# 9th element from the front
+>>> my_list[9]		# 10th element from the front
 9
 >>> my_list[-1]		# 1st element from the back
 9
@@ -47,7 +50,7 @@ In python, you can use both +ve and -ve indices to access elements
 0
 ```
 
-But say you want to get a `range` of elements, we use the following syntax
+To get a `range` of elements, we use the following syntax:
 
 ```python
 list[start:end:step]
@@ -58,9 +61,9 @@ list[start:end:step]
 *	step - Step size, defaults to **1**
 
 ```python
->>> my_list[0:5]	# 1st element from the front till the 4th element from the front
+>>> my_list[0:5]	# 1st element from the front till the 5th element from the front
 [0, 1, 2, 3, 4]
->>> my_list[3:8]	# 3rd element from the front till the 7th element from the front
+>>> my_list[3:8]	# 4th element from the front till the 8th element from the front
 [3, 4, 5, 6, 7]
 >>> my_list[0:-5]	# 1st element from the front till the 6th element from the back
 [0, 1, 2, 3, 4]
@@ -68,7 +71,7 @@ list[start:end:step]
 [3, 4, 5, 6, 7]
 ```
 
-Since end is non-inclusive, how do you get till the end of a `list`?
+Since end is non-inclusive, how do you slice the entire `list`?
 
 ```python
 >>> my_list[1:9]		# Does not work
@@ -90,18 +93,16 @@ This also works for the beginning
 [0, 1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-You can also drop both start and end to get the entire `list`
+You can also drop both start and end to slice the entire `list`
 
 ```python
 >>> my_list[:]	# The entire range
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-We haven't touched the step parameter. The step allows to skip values
+The step parameter skips values
 
 ```python
->>> my_list[2:9:1]	# the default value of step, pick every 1st element
-[2, 3, 4, 5, 6, 7, 8]
 >>> my_list[2:9:2]	# pick every 2nd element
 [2, 4, 6, 8]
 ```
@@ -122,24 +123,29 @@ Using step you can reverse the entire `list`
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
-Now that you have an understanding of `list`, let's now see some built-in functions
+<p align="center"><img src="harry-potter-sorting-hat.jpg"></p>
+
+Now that you have an understanding of `list`, let's now see some built-in operators
 
 The `in` and `not in` operators
 
 ```python
->>> my_list
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
->>> 5 in my_list	# checks if 5 is in my_list
+>>> gryffindor = ["harry", "ron", "hermione"]
+>>> "harry" in gryffindor # checks if "harry" is in gryffindor
 True
->>> 10 not in my_list	# checks if 10 is not in my_list
+>>> "draco" not in gryffindor # checks if "draco" is not in gryffindor
 True
 ```
 
 You can concatenate two `list` objects by using the `+` operator
 
 ```python
->>> [0, 1, 2] + [3, 4, 5] # concatenates the 2 lists
-[0, 1, 2, 3, 4, 5]
+>>> slytherin = ["draco", "tom", "snape", "vincent", "gregory"]
+>>> ravenclaw = ["luna", "cho", "padma"]
+>>> hufflepuff = ["cedric", "tonks"]
+>>> hogwarts = gryffindor + slytherin + ravenclaw + hufflepuff
+>>> hogwarts
+['harry', 'ron', 'hermione', 'draco', 'tom', 'snape', 'vincent', 'gregory', 'luna', 'cho', 'padma', 'cedric', 'tonks']
 ```
 
 You can repeat a `list` by using the `*` operator
@@ -164,12 +170,14 @@ You can also use mathematical functions
 
 Keep in mind that a `list` can also be nested
 
+<p align="center"><img src="harry-potter-quidditch-balls.jpg"></p>
+
 ```python
->>> l = [[0, 1, 2], ['zainab', 'rahul', 'james']] # l comprises of 2 nested lists
+>>> l = [[0, 1, 2], ['quaffle', 'bludger', 'bludger', 'snitch']] # l comprises of 2 nested lists
 >>> l[0][2]	# l[0] = [0, 1, 2]
 2
->>> l[1][:2]	# l[1] = ['zainab', 'rahul', 'james']
-['zainab', 'rahul']
+>>> l[1][:2]	# l[1] = ['quaffle', 'bludger', 'bludger', 'snitch']
+['quaffle', 'bludger']
 >>> l[0][::-1]
 [2, 1, 0]
 ```
@@ -180,76 +188,78 @@ One fundamental concept of `list` is that it is mutable. This means you can chan
 
 We will use the following example
 
+<p align="center"><img src="harry-potter-spell-cast.jpg"></p>
+
 ```python
->>> dogs = ['pug', 'beagle', 'poodle', 'shiba inu', 'chow chow']
+>>> spells = ["riddikulus", "obliviate", "sectumsempra", "avada kedavara", "alohomora", "lumos", "expelliarmus","wingardium leviosa", "accio", "expecto patronum"]
 ```
 
 To modify a single value
 
 ```python
->>> dogs[1] = 'bulldog'	# modify element at position 1
->>> dogs
-['pug', 'bulldog', 'poodle', 'shiba inu', 'chow chow']
+>>> spells[0] = 'stupefy'	# modify element at position 1
+>>> spells
+['stupefy', 'obliviate', 'sectumsempra', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum']
 ```
 
 Or modify a `range` of values
 
 ```python
->>> dogs[:3] = ['retriever', 'husky', 'terrier'] # modify all elements in range(0, 3)
->>> dogs
-['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow']
+>>> spells[:3] = ['crucio', 'imperio', 'incendio'] # modify all elements in range(0, 3)
+>>> spells
+['crucio', 'imperio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum']
 ```
 
 You can `append` elements at end of a `list`
 
 ```python
->>> dogs.append('boxer') # add 'boxer' at end of the list
->>> dogs
-['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow', 'boxer']
+>>> spells.append('reducto')
+>>> spells
+['crucio', 'imperio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reducto']
 ```
 
 Or `insert` at a specific index
 
 ```python
->>> dogs.insert(2, 'papillon')	# insert 'papillion' at position 2
->>> dogs
-['retriever', 'husky', 'papillon', 'terrier', 'shiba inu', 'chow chow', 'boxer']
->>> dogs.insert(-1, 'maltese')	# negative indices also work
->>> dogs
-['retriever', 'husky', 'papillon', 'terrier', 'shiba inu', 'chow chow', 'maltese', 'boxer']
+>>> spells.insert(2, "silencio")
+>>> spells
+['crucio', 'imperio', 'silencio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reducto']
+>>> spells.insert(-1, "reparo") # negative indices also work
+>>> spells
+['crucio', 'imperio', 'silencio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reparo', 'reducto']
 ```
 
 To delete a single value
 
 ```python
->>> del dogs[2]		# delete element at position 2
->>> dogs
-['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow', 'maltese', 'boxer']
->>> del dogs[-2]	# negative indices also work
->>> dogs
-['retriever', 'husky', 'terrier', 'shiba inu', 'chow chow', 'boxer']
+>>> del spells[2]
+>>> spells
+['crucio', 'imperio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reparo', 'reducto']
+>>> del spells[-2]
+>>> spells
+['crucio', 'imperio', 'incendio', 'avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reducto']
 ```
 
 Or delete a `range` of values
 
 ```python
->>> del dogs[:3]	# delete all elements in the range(0, 3)
->>> dogs
-['shiba inu', 'chow chow', 'boxer']
+>>> del spells[:3]
+>>> spells
+['avada kedavara', 'alohomora', 'lumos', 'expelliarmus', 'wingardium leviosa', 'accio', 'expecto patronum', 'reducto']
 ```
 
 One neat property of a `list` is unpacking
 
 ```python
->>> student = ['Neha', 19, 2019]	# list packing
+>>> student = ['Neville', 29, 1980]	# list packing
 >>> name, age, year = student		# list unpacking
 >>> print(name, age, year)		# prints as space separated values by default
-Neha 19 2019
+Neville 29 1980
 ```
 
 However, if we try to unpack more/less values than expected, python throws an error
 ```python
->>> student = ['Neha', 19, 2019]
+>>> student = ['Neville', 29, 1980]
 >>> name, age, year, id_no = student	# trying to unpack 4 values from a list of 3 values
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -277,24 +287,26 @@ We can use type casting to better understand the `range` function
 To iterate over a `list`
 
 ```python
->>> animals = ['lion', 'cat', 'panda', 'dog']
+>>> animals = ['hippogriff', 'phoenix', 'unicorn', 'centaur']
 >>> for animal in animals:	# loops through a sequence of elements
 ...     print(animal)
 ...
-lion
-cat
-panda
-dog
+hippogriff
+phoenix
+unicorn
+centaur
 ```
 
 To empty a `list`
 
 ```python
->>> animals = ['lion', 'cat', 'panda', 'dog']
+>>> animals = ['hippogriff', 'phoenix', 'unicorn', 'centaur']
 >>> animals.clear()		# delete all elements in list
 >>> animals
 []
 ```
+
+<p align="center"><img src="hippogriff.png"></p>
 
 ---
 
@@ -338,43 +350,45 @@ TypeError: 'tuple' object does not support item assignment
 To iterate over a `tuple`
 
 ```python
->>> levels = ('preschool', 'elementary', 'intermediate', 'senior high', 'university')
+>>> levels = ('prefect', 'head', 'caretaker', 'professor', 'headmaster')
 >>> for level in levels:	# loops through a sequence of elements
 ...     print(level)
 ...
-preschool
-elementary
-intermediate
-senior high
-university
+prefect
+head
+caretaker
+professor
+headmaster
 ```
+
+<p align="center"><img src="prefect.jpg"></p>
 
 We can now try to see `enumerate` function
 
 ```python
 >>> tuple(enumerate(levels))	# adds a counter for each value as a tuple of (counter, value)
-((0, 'preschool'), (1, 'elementary'), (2, 'intermediate'), (3, 'senior high'), (4, 'university'))
+((0, 'prefect'), (1, 'head'), (2, 'caretaker'), (3, 'professor'), (4, 'headmaster'))
 ```
 
 The default starting value for the counter is **0** in `enumerate`. However, you can specify a different starting value
 
 ```python
 >>> tuple(enumerate(levels, 100))	# starts the counter from 100
-((100, 'preschool'), (101, 'elementary'), (102, 'intermediate'), (103, 'senior high'), (104, 'university'))
+((100, 'prefect'), (101, 'head'), (102, 'caretaker'), (103, 'professor'), (104, 'headmaster'))
 ```
 
 Using `tuple` unpacking we can loop through with `enumerate`
 
 ```python
->>> levels = ('preschool', 'elementary', 'intermediate', 'senior high', 'university')
+>>> levels = ('prefect', 'head', 'caretaker', 'professor', 'headmaster')
 >>> for index, level in enumerate(levels):	# loop through a sequence of elements with tuple unpacking
 ...     print(index, level)
 ...
-0 preschool
-1 elementary
-2 intermediate
-3 senior high
-4 university
+0 prefect
+1 head
+2 caretaker
+3 professor
+4 headmaster
 ```
 
 ---
@@ -383,19 +397,21 @@ Using `tuple` unpacking we can loop through with `enumerate`
 
 A dictionary is a collection of key-value pairs. The key is a _unique_ identifier that is mapped to a value, almost like a real-world dictionary where each word is a key and the definition is the value. You can define a dictionary using curly braces `{}`, a colon `:` separates each key from its value
 
+<p align="center"><img src="courses.jpg"></p>
+
 ```python
->>> student = {'name': 'Rahul', 'age': 21, 'courses': ['CS', 'Chem', 'TRW', 'Bio']}	# dict
+>>> student = {'name': 'Harry', 'age': 14, 'courses': ['Charms', 'Defence Against the Dark Arts', 'Potions', 'Herbology']}	# dict
 ```
 
 We access values of a `dict` similar to a `list` but instead of specifying the position (which doesn't make much sense in a dictionary), we specify the key
 
 ```python
 >>> student['name']		# accessing the key 'name'
-'Caleb'
+'Harry'
 >>> student['age']		# accessing the key 'age'
-25
+14
 >>> student['courses']	# accessing the key 'courses'
-['CS', 'Chem', 'TRW', 'Bio']
+['Charms', 'Defence Against the Dark Arts', 'Potions', 'Herbology']
 ```
 
 If the key, does not exist it will throw an error, a better way is to use the `get` method
@@ -412,9 +428,9 @@ None
 Adding an entry is as easy as assigning a new key and a value
 
 ```python
->>> student['idno'] = '2019A7PS0903U'	# updates the value if key exists else creates a new key with value
+>>> student['idno'] = 'the-boy-who-lived'	# updates the value if key exists else creates a new key with value
 >>> student
-{'name': 'Caleb', 'age': 25, 'courses': ['CS', 'Chem', 'TRW', 'Bio'], 'idno': '2019A7PS0903U'}
+{'name': 'Harry', 'age': 25, 'courses': ['Charms', 'Defence Against the Dark Arts', 'Potions', 'Herbology'], 'idno': 'the-boy-who-lived'}
 ```
 
 To delete an entry
@@ -422,7 +438,7 @@ To delete an entry
 ```python
 >>> del student['idno']	# delete key-value pair with key 'idno'
 >>> student
-{'name': 'Caleb', 'age': 25, 'courses': ['CS', 'Chem', 'TRW', 'Bio']}
+{'name': 'Harry', 'age': 25, 'courses': ['Charms', 'Defence Against the Dark Arts', 'Potions', 'Herbology']}
 ```
 
 We can have a variety of keys and values just like in a `list` or `tuple` as long as the _keys_ are of immutable data type
@@ -484,15 +500,17 @@ To empty a `dict`
 
 A `set` is an unordered collection with no duplicate elements. A `set` itself may be modified, but the elements of a set must be _immutable_.
 
+<p align="center"><img src="weasleys.png"></p>
+
 There are two ways to create a `set`
 
 ```python
->>> fruits = {"apple", "orange", "banana", "orange", "pear", "apple"}		# Using {} or curly braces
->>> fruits	# duplicate elements automatically removed
-{'banana', 'apple', 'orange', 'pear'}
->>> fruits = set(["apple", "orange", "banana", "orange", "pear", "apple"])	# Using the set function
->>> fruits	# duplicate elements automatically removed
-{'banana', 'apple', 'orange', 'pear'}
+>>> weasleys = {"ron", "fred", "george", "fred", "ginny", "ron"}		# Using {}
+>>> weasleys	# duplicate elements automatically removed
+{'george', 'ron', 'fred', 'ginny'}
+>>> weasleys = set(["ron", "fred", "george", "fred", "ginny", "ron"])	# Using the set function
+>>> weasleys	# duplicate elements automatically removed
+{'george', 'ron', 'fred', 'ginny'}
 ```
 
 Elements in a `set` can be of varying data types as long as they are immutable
@@ -510,44 +528,44 @@ TypeError: unhashable type: 'list'
 You can modify a `set`
 
 ```python
->>> fruits = {'banana', 'apple', 'pear', 'orange'}
->>> fruits.add('grape')		# adds an element to the set
->>> fruits
-{'orange', 'banana', 'grape', 'apple', 'pear'}
->>> fruits.remove('orange') 	# removes an element from the set
->>> fruits
-{'banana', 'grape', 'apple', 'pear'}
+>>> weasleys = {'george', 'ron', 'ginny', 'fred'}
+>>> weasleys.add('percy')		# adds an element to the set
+>>> weasleys
+{'fred', 'george', 'percy', 'ron', 'ginny'}
+>>> weasleys.remove('fred') 	# removes an element from the set. accidental spoilers!
+>>> weasleys
+{'george', 'percy', 'ron', 'ginny'}
 ```
 
 Be careful when you `remove` elements, a better way is to use `discard`
 
 ```python
->>> fruits.remove('carrot')		# removes an element if it exists else raises an error
+>>> weasleys.remove('harry')		# removes an element if it exists else raises an error
 Traceback (most recent call last):  	# error: element not in set
   File "<stdin>", line 1, in <module>
-KeyError: 'carrot'
->>> fruits.discard('carrot')		# removes an element if it exists else does nothing
+KeyError: 'harry'
+>>> weasleys.discard('harry')		# removes an element if it exists else does nothing
 ```
 
 To iterate over a `set`
 
 ```python
->>> fruits = {'orange', 'banana', 'grape', 'apple', 'pear'}
->>> for fruit in fruits:  # loops through a sequence of elements
+>>> weasleys = {'fred', 'george', 'percy', 'ron', 'ginny'}
+>>> for fruit in weasleys:  # loops through a sequence of elements
 ...     print(fruit)
 ...
-orange
-banana
-grape
-apple
-pear
+fred
+george
+percy
+ron
+ginny
 ```
 
 To empty a `set`
 
 ```python
->>> fruits.clear()  # delete all elements in set
->>> fruits
+>>> weasleys.clear()  # delete all elements in set
+>>> weasleys
 set()
 ```
 
@@ -647,6 +665,8 @@ def greet():
 ...     print("Hello, Everyone!")
 ```
 
+<p align="center"><img src="hello.gif"></p>
+
 To call a function, simply type the function name with appropriate parameters
 
 ```python
@@ -665,8 +685,8 @@ Let's add a name parameter to our function
 Now we call it by passing a name as an argument, if we don't we get an error
 
 ```python
->>> greet("Zack")
-Hello, Zack!
+>>> greet("Voldemort")
+Hello, Voldemort!
 >>> greet()	# error: no name passed
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -682,8 +702,8 @@ To solve this we can use default arguments
 ...
 >>> greet()		# no argument passed, uses default value
 Hello, Everyone!
->>> greet("Alice")	# argument passed, uses argument value
-Hello, Alice!
+>>> greet("Dumbledore")	# argument passed, uses argument value
+Hello, Dumbledore!
 ```
 
 You can have multiple arguments
@@ -697,8 +717,8 @@ You can have multiple arguments
 Keep the ordering of arguments when calling the function
 
 ```python
->>> greet("Hope you are doing well :)", "Abdul")	# name passed, uses argument value
-Hello, Abdul! Hope you are doing well :)
+>>> greet("The boy who lived come to die? :P", "Harry")	# name passed, uses argument value
+Hello, Harry! The boy who lived come to die? :P
 >>> greet("Hope you like our session!")			# no name passed, uses default value
 Hello, Everyone! Hope you like our session!
 ```
