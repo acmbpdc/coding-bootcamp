@@ -4,6 +4,8 @@
 
 ## Motivation
 
+<p align="center"><img src="motivation.png"></p>
+
 **What is Version Control?**
 
 Version control system (VCS) is a software tool that helps the developers keep track of every modification to the code. If a mistake is made and things break down, developers can go back and compare earlier versions to debug and help fix the problem.
@@ -40,19 +42,23 @@ $ git --version
 
 If the installation is successful, you should see the version of the installed software.
 
-```bash
+```
 git version 2.23.0
 ```
 
 If something went wrong, you would see the following message instead:
 
-```bash
+```
 command not found: git
 ```
+
+<p align="center"><img src="installation.jpg"></p>
 
 ---
 
 ## Configuration
+
+<p align="center"><img src="configuration.png"></p>
 
 #### `config`
 
@@ -65,6 +71,11 @@ $ git config --global user.name "[full name]"
 $ git config --global user.email "[email address]"
 ```
 
+>   #### Subcommand
+>   
+>   Some software are very complex and can have multiple use cases.
+>   The use of subcommands allows developers to use these tools only for a particular task
+
 To check the values with `config`
 
 ```bash
@@ -73,21 +84,12 @@ $ git config --list
 
 Since we used the `--global` flag with our `config`, the same name and email will be used for any `git` repo we have on our system.
 
->   #### Repository
->   
->   A repository is a directory that has elevated functionality.
-
 If you want to use a different name and email for a particular repo, use the `--local` flag instead
 
 ```bash
 $ git config --local user.name "[full name]"
 $ git config --local user.email "[email address]"
 ```
-
->   #### Subcommand
->   
->   Some software are very complex and can have multiple use cases.
->   The use of subcommands allows developers to use these tools only for a particular task
 
 ---
 
@@ -108,23 +110,28 @@ To initialize the repository, use the `init` subcommand.
 $ git init
 ```
 
+
 You have created a `git` repository on your local system. If you list **a**ll files
 
 ```bash
-$ ls -la                                                                                                                            
+$ ls -la
 ```
+
+>   #### Repository
+>   
+>   A repository is a directory that has elevated functionality.
 
 You should see a **.git** directory. 
 
->	#### .git directory
+> #### `.git/`
 >
->	The .git directory contains everything that's related to our repository. If you send a .git directory to someone else, they would have the complete git project and it's full history. 
+> The .git directory contains everything that's related to our repository. If you send a .git directory to someone else, they would have the complete git project and it's full history. 
 >
->	If you ever want to stop tracking your project using git, you can just delete the .git directory.
+> If you ever want to stop tracking your project using git, you can just delete the .git directory.
 
-### Areas of git repository
+### Logical Areas of a Git Repository
 
-In git, we have 3 logical areas in which we work with our files
+Git uses 3 logical areas to provide version control:
 
 ![](areas-of-repository.png)
 
@@ -158,6 +165,8 @@ With your preferred text editor, add the following content to the `README.md`
 Hello, world!
 ```
 
+#### `status`
+
 Use the `status` subcommand
 
 ```bash
@@ -179,15 +188,29 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-`git` calls `README.md` file as _Untracked_ since it's a new file. It will start tracking the file once we add it to the staging area.
-
->   #### Branch
+>   #### Branches
 >   
 >   Git can track file changes across multiple 'timelines' of a repository.
 >   Each branch is its own universe. Git allows you to create branches from existing ones and move across them.
 >	The default branch is called `master`.
 
+<p align="center"><img src="branch.jpg"></p>
+
+>   #### Commits
+>   
+>   A commit is nothing but a checkpoint. It is a milestone in that timeline.
+>
+>	The `commit` command takes the staged changes and commits it to the project history.
+>
+>	When making commits use a clear and concise message describing the changes you have made.
+
+`git` assigns `README.md` as _Untracked_ since it's a new file.
+It will start tracking the file once we add it to the staging area.
+
+
 In order to `commit` something, `git` needs to know exactly what to `commit`. In our case we want `git` to save the new file that we created, i.e. `README.md`. 
+
+#### `add`
 
 First let us add `README.md` to the staging area with the `add` subcommand
 
@@ -211,19 +234,13 @@ Changes to be committed:
 
 Earlier, our file was untracked. `git` has now added the file into the staging area, it expresses this by putting the `README.md` in _Changes to be committed_. After adding it to the staging area, `git` realizes that we are planning to commit this file.
 
+#### `commit`
+
 Confirm the changes with `commit` and a message by using the `-m` flag
 
 ```bash
 $ git commit -m "Intial Commit" # the -m flag is for a message. A message usually describes what the commit has done.
 ```
-
->   #### Commit
->   
->   A commit is nothing but a checkpoint. It is a milestone in that timeline.
->
->	The `commit` command takes the staged changes and commits it to the project history.
->
->	When making commits use a clear and concise message describing the changes you have made.
 
 Checking the status again
 
@@ -236,6 +253,8 @@ nothing to commit, working tree clean
 _Nothing to commit_ means everything in the staging area has already been committed.
 
 _Working tree clean_ means there is nothing new in our directory.
+
+#### `log`
 
 We can `log` the `commit` history
 
@@ -259,6 +278,8 @@ $ git log -p	# shows what changed with each commit
 ---
 
 ## Remote Workflow
+
+<p align="center"><img src="remote.jpg"></p>
 
 Our goal is to create a synced copy of our local repository on GitHub. This way, we can share our projects with the rest of the world. Just like how Instagram is meant for photos, [GitHub](https://github.com/) is meant for `git` repositories.
 
@@ -285,6 +306,8 @@ To setup your remote repository:
 >   For repositories to be open source, a license is added to control the use, changes and distribution of the project.
 >   For more information check out [this link](https://help.github.com/en/articles/licensing-a-repository).
 
+<p align="center"><img src="license.png"></p>
+
 We have created an empty repository on GitHub. Let us link this with our local repository.
 
 Copy the link of the GitHub repository, it would look like this:
@@ -293,16 +316,19 @@ Copy the link of the GitHub repository, it would look like this:
 https://github.com/[your username]/my-first-repo.git
 ```
 
+#### `remote`
+
 Use the `remote` subcommand to add a `remote`
 
 ```bash
 $ git remote add origin [url of your github repo]
 ```
 
->   #### Remote
+>   #### Remotes
 >   
 >   A remote is essentially a duplicate of a repository in another location. You can have a remote on GitHub, GitLab, Google Drive, Dropbox, and even your own server.
 >	If there are changes in the remote, you can download them locally. Similarly, if there are changes in the local repository, you can upload those changes in the remote.
+> By convention, the name `origin` is given to the main remote. Due to this, you don't have to remember the entire url of your remote.
 
 You can make sure the `remote` has been added
 
@@ -310,10 +336,6 @@ You can make sure the `remote` has been added
 $ git remote	# displays all our remotes
 origin
 ```
-
->	#### Origin
->
->	By convention, the name `origin` is given to the main remote. Due to this, you don't have to remember the entire url of your remote. This allows you to download or upload changes by just typing `origin` instead of the entire url of your remote.
 
 To see the full location of a `remote`, use the `-v` flag
 
@@ -328,11 +350,8 @@ origin  https://github.com/[your username]/[url of your github repo].git (fetch)
 origin  https://github.com/[your username]/[url of your github repo].git (push)
 ```
 
->	#### fetch & push
->
->	fetch refers to the location from where git downloads the changes.
->
->	push refers to the location where git uploads the changes.
+`fetch` refers to the location from where git downloads the changes.
+`push` refers to the location where git uploads the changes.
 
 Right now, the local and remote repositories are linked. However, they are not synced yet.
 
@@ -342,13 +361,7 @@ Check the `commit` history
 $ git log
 ```
 
->	#### Branch
->
->	Git can track file changes across multiple 'timelines' of a repository. Each branch is its own universe. Git allows you to create branches from existing ones and move across them.
->
->	The default branch is called master.
-
->   #### HEAD
+>   #### `HEAD`
 >
 >   The HEAD is a special pointer that points to the local branch you are on. Since it usually points to a branch and not a commit, it is sometimes called a symbolic pointer. In this case, we are on the default branch or the master branch.
 >
@@ -361,6 +374,8 @@ To sync the repositories, either:
 *   the local repo pulls from the remote (local is behind)
 *   the local repo pushes into the remote (local is ahead)
 
+#### `push`
+
 In our case, we need to perform a `push`
 
 ```bash
@@ -371,7 +386,7 @@ If you refresh the page for your GitHub repository, you should see the changes i
 
 ---
 
-## Combining Local and Remote Workflow
+## Combining Local and Remote Workflows
 
 Go ahead and add the following lines to the `README.md`
 
@@ -385,6 +400,8 @@ Using local workflow is simple:
 *	Add the files to the staging area
 *	Commit your changes
 ```
+
+#### `diff`
 
 Often, we want to see the differences between the tracked files in the working directory and the staging area. You can see this using `diff`
 
@@ -420,10 +437,6 @@ Follow the steps to `commit` this change
 
 On refreshing the page on GitHub, the new link you added should point to the page itself.
 
----
-
-## Fetch & Merge
-
 Using the GUI, edit the `README.md` file of remote on GitHub and add the following lines
 
 ```
@@ -436,6 +449,8 @@ Using the remote workflow seems complicated, but is actually really easy:
 *	Push the changes onto the remote
 ```
 
+#### `fetch`
+
 To download changes made to the `remote` use the `fetch` subcommand
 
 ```bash
@@ -445,11 +460,15 @@ $ git log
 
 You can see the `HEAD` pointer is one commit behind the remote `origin/master`.
 
+#### `merge`
+
 `merge` these changes to your local master branch
 
 ```bash
 $ git merge origin/master	# merge commit referenced by origin/master to local branch
 ```
+
+#### `pull`
 
 You can also use `pull` instead of `fetch`, the only difference is `pull` combines `fetch` and `merge` into a single command
 
@@ -457,8 +476,9 @@ You can also use `pull` instead of `fetch`, the only difference is `pull` combin
 $ git pull origin master	# fetch changes from origin and merge onto master branch
 ```
 
->	#### origin/master
->
+<p align="center"><img src="pull.gif"></p>
+
+
 >	origin/master is a remote tracking branch, it tells us what the master branch looks like at our remote or origin.
 >
 >	If HEAD -> master and origin/master are pointing to the same commit, it means our local repository is in sync with the remote for the master branch.
@@ -477,6 +497,8 @@ Commit these changes and push, you can do this!
 
 ## Collaboration
 
+<p align="center"><img src="collab.gif"></p>
+
 You have seen the power of GitHub as a cloud storage platform for repositories. Now, let's build something together.
 
 There are a few nuances associated with the process of collaborating on GitHub.
@@ -484,19 +506,23 @@ There are a few nuances associated with the process of collaborating on GitHub.
 *   If the owner of a repository has added you as a collaborator, you can directly make changes to a repository.
 *   If you are not a collaborator of the repository, you cannot make changes to it unless you create a fork of that repository and can later request the collaborators of the original repository to merge your changes.
 
->   #### Fork
+>   #### Forks
 >
 >   A fork is a copy of a GitHub repository. When you fork a repository, you are the owner of that forked repository. A fork resides only within the context of GitHub.
 
->   #### Clone
+>   #### Clones
 >
 >   A clone is a copy of a repository. Technically, any two repositories that are linked (via remote) are said to be clones. 
+
+<p align="center"><img src="clone.png"></p>
 
 In our case, we created a clone of our local repository on the GitHub infrastructure.
 
 Navigate to [acmbpdc/git-workshop](https://github.com/acmbpdc/git-workshop).
 
 Create a fork of this repository. It will take a few seconds.
+
+#### `clone`
 
 Clone this the newly forked repository from GitHub and onto your local system. Use the `clone` subcommand to do this.
 
@@ -540,17 +566,17 @@ To put these new changes from the original repo onto the forked repo
 $ git push origin master
 ```
 
----
-
-## Branches
-
 Branches allow you to work on different versions of the same file in parallel. Our edits on one branch can be independent of work on other branches. By now you know the default `branch` that is the `master branch`. Now we want to modify our project but we do not want to spoil our `master branch` and instead keep it clean. For this reason, we will create a new `branch`.
+
+#### `branch`
 
 Create a new `branch`
 
 ```bash
 $ git branch feature
 ```
+
+#### `checkout`
 
 Move into this new `branch` using the `checkout` subcommand
 
@@ -630,11 +656,13 @@ $ git branch -r
 
 You can now see the remote branch `origin/feature` has been added onto the list.
 
----
+> #### Pull Requests
+>
+> A pull request is a request to the collaborators (owners) of a repository on GitHub to accept and hence pull changes made to the project b a 3rd party
 
-## Pull Requests
+<p align="center"><img src="forks.jpg"></p>
 
-In order to submit a pull request, it is best to merge these changes from your branch into the `master` branch.
+In order to submit a pull request, it is best to merge these changes from your branch into the `master` branch of your fork.
 
 You can see what changes will be made when you `merge` using `diff`
 
@@ -647,65 +675,10 @@ To merge a branch onto the current branch
 ```bash
 $ git checkout master	# switches current branch to master branch
 $ git merge feature		# merges changes of branch onto the current branch
+$ git push origin master # push changes on master to GitHub Fork
 ```
 
 Navigate to the page of your GitHub fork. You should now see an option to create a pull request. Essentially, you are requesting the original repository to pull your changes.
-
----
-
-## Miscellaneous
-<!-- Do you want to add any of these? -->
-
-To **r**e**m**ove a file
-
-```bash
-$ git rm [file name]	# deletes the file from the working directory and the staging area
-```
-
-Let's now see how to delete a `branch`. Before you do that, there is a handy command that allows you to see which commits are already merged with the `branch` you are on
-
-```bash
-$ git branch --merged
-```
-
-To delete a `branch`
-
-```bash
-$ git branch -d [branch name]	# if the branch has been merged
-$ git branch -D [branch name]	# if the branch has not been merged
-```
-
-Be extremely careful when you do this as there is no going back when you delete the branch.
-
-To undo working tree modifications, use `checkout`
-
-```bash
-$ git checkout -- [file name]	# replaces file in working directory with file in staging area
-```
-
-Keep in mind once you use `checkout`, you cannot undo since you never committed any of those changes.
-
-To undo staging area modifications, use `reset`
-
-```bash
-$ git reset HEAD [file name]	# replaces file in staging area with file in most recent commit
-```
-
-We only restored the file in the staging area, our working directory still has the modified version of the file. You can use `checkout` to restore this as well.
-
-To restore file from a previous `commit`
-
-```bash
-$ git  checkout [commit hash] -- [file name]
-```
-
-This puts the file in both the working tree and the staging area.
-
-You can use multiline commit messages by leaving the `-m` option
-
-```bash
-$ git commit	# uses default file editor to add the commit message
-```
 
 ---
 
@@ -714,13 +687,37 @@ $ git commit	# uses default file editor to add the commit message
 We covered:
 
 *	[Motivation](#motivation)
-*	[Installation](#installation)
-*	[Configuration](#configuration)
-*	[Local Workflow](#local-workflow)
-*	[Remote Workflow](#remote-workflow)
-*	[Combining Local and Remote Workflow](#combining-local-and-remote-workflow)
-*	[Fetch & Merge](#fetch-&-merge)
-*	[Collaboration](#collaboration)
-*	[Branches](#branches)
-*	[Pull Requests](#pull-requests)
-*	[Miscellaneous](#miscellaneous)
+* [Installation](#installation)
+* [Configuration](#configuration)
+  * [`config`](#config)
+  * [Subcommand](#subcommand)
+* [Local Workflow](#local-workflow)
+  * [`init`](#init)
+  * [Repository](#repository)
+  * [`.git/`](#.git)
+  * [Logical Areas of a Git Repository](#logical-areas-of-a-git-repository)
+  * [`status`](#status)
+  * [Branches](#branches)
+  * [Commits](#commits)
+  * [`add`](#add)
+  * [`commit`](#commit)
+  * [`log`](#log)
+* [Remote Workflow](#remote-workflow)
+  * [`.gitignore`](#.gitignore)
+  * [License](#license)
+  * [`remote`](#remote)
+  * [Remotes](#remotes)
+  * [`HEAD`](#HEAD)
+  * [`push`](#push)
+* [Combining Local and Remote Workflows](#combining-local-and-remote-workflows)
+  * [`diff`](#diff)
+  * [`fetch`](#fetch)
+  * [`merge`](#merge)
+  * [`pull`](#pull)
+* [Collaboration](#collaboration)
+  * [Forks](#forks)
+  * [Clones](#clones)
+  * [`clone`](#clone)
+  * [`branch`](#branch)
+  * [`checkout`](#checkout)
+  * [Pull Requests](#pull-requests)
