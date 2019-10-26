@@ -15,6 +15,10 @@ This bootcamp is intended to provide the audience with a foundation in using som
 | 2 & 3| **Basics of Python** [**Part 1**](sessions/02-basics-of-python) **&** [**Part 2**](sessions/03-basics-of-python) |<p align="center"><img src="assets/harry-potter.png" height="200"></p>|
 | 4 | [**Git Workshop**](sessions/04-git-workshop) |<p align="center"><img src="assets/marvel.png" height="200"></p>|
 
+## Evaluation
+
+Navigate to [`evaluation`](./evaluation/) to find out more.
+
 ## Instructors
 
 This workshop is conducted by :
