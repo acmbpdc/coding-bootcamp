@@ -25,7 +25,7 @@ Fluency on the command line is a skill which although considered arcane, improve
 
 Working on the command line interface is very similar to solving a simple puzzle. With the right approach, anything is possible. You just need to pick the right commands from a large toolbox.
 
-![Bob Code](./bob-code.jpg)
+![Bob Code](./assets/bob-code.jpg)
 
 ---
 
@@ -66,7 +66,7 @@ Once *successfully authenticated*, you should see the following prompt:
 
 This is where we input commands.
 
-![Dark](dark.png)
+![Dark](./assets/dark.png)
 
 By default we are provided with a [Bash](https://www.gnu.org/software/bash/) terminal.
 
@@ -86,7 +86,7 @@ Use the `echo` command to print stuff
 echo "Hello, world."
 ```
 
-![Stranger Things Wall](./stranger-things-wall.jpg)
+![Stranger Things Wall](./assets/stranger-things-wall.jpg)
 
 
 ```bash
@@ -158,7 +158,7 @@ It shows you:
 
 There are many people logged in right now.
 
-![Team](team.jpeg)
+![Team](./assets/team.jpeg)
 
 Use the `who` command to check them out.
 
@@ -214,7 +214,7 @@ You are currently in your `HOME` directory which is the equivalent of `Desktop` 
 >   *   `/` refers to the root directory
 >   *   `~` refers to the `HOME` directory
 
-![Map](map.jpg)
+![Map](./assets/map.jpg)
 
 #### `cd`
 
@@ -436,7 +436,7 @@ To better visualize the contents of `PWD` use the `tree` command
 tree # displays the names of files and directories in the PWD in a recursive manner
 ```
 
-![Upside Down](./upsidedown.jpg)
+![Upside Down](./assets/upsidedown.jpg)
 
 You can also use `-R` with `ls`
 
@@ -556,7 +556,7 @@ These characters represent the permissions for a particular entity.
 >
 >   A permission of *5* allows only *read* and *execute* (4 + 1 = 5).
 
-![Privacy](./privacy.jpeg)
+![Privacy](./assets/privacy.jpeg)
 
 File permissions can be changed by:
 

@@ -1,10 +1,10 @@
-<h1> <img src="git-icon.png" width="30" height="30" style="float:left;"> Git Workshop
+<h1> <img src="./assets/git-icon.png" width="30" height="30" style="float:left;"> Git Workshop
 
-<p align="center"><img src="github-logo.png" height="200"></p>
+<p align="center"><img src="./assets/github-logo.png" height="200"></p>
 
 ## Motivation
 
-<p align="center"><img src="motivation.png"></p>
+<p align="center"><img src="./assets/motivation.png"></p>
 
 **What is Version Control?**
 
@@ -52,13 +52,13 @@ If something went wrong, you would see the following message instead:
 command not found: git
 ```
 
-<p align="center"><img src="installation.jpg"></p>
+<p align="center"><img src="./assets/installation.jpg"></p>
 
 ---
 
 ## Configuration
 
-<p align="center"><img src="configuration.png"></p>
+<p align="center"><img src="./assets/configuration.png"></p>
 
 #### `config`
 
@@ -194,7 +194,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 >   Each branch is its own universe. Git allows you to create branches from existing ones and move across them.
 >	The default branch is called `master`.
 
-<p align="center"><img src="branch.jpg"></p>
+<p align="center"><img src="./assets/branch.jpg"></p>
 
 >   #### Commits
 >   
@@ -279,7 +279,7 @@ $ git log -p	# shows what changed with each commit
 
 ## Remote Workflow
 
-<p align="center"><img src="remote.jpg"></p>
+<p align="center"><img src="./assets/remote.jpg"></p>
 
 Our goal is to create a synced copy of our local repository on GitHub. This way, we can share our projects with the rest of the world. Just like how Instagram is meant for photos, [GitHub](https://github.com/) is meant for `git` repositories.
 
@@ -306,7 +306,7 @@ To setup your remote repository:
 >   For repositories to be open source, a license is added to control the use, changes and distribution of the project.
 >   For more information check out [this link](https://help.github.com/en/articles/licensing-a-repository).
 
-<p align="center"><img src="license.png"></p>
+<p align="center"><img src="./assets/license.png"></p>
 
 We have created an empty repository on GitHub. Let us link this with our local repository.
 
@@ -476,7 +476,7 @@ You can also use `pull` instead of `fetch`, the only difference is `pull` combin
 $ git pull origin master	# fetch changes from origin and merge onto master branch
 ```
 
-<p align="center"><img src="pull.gif"></p>
+<p align="center"><img src="./assets/pull.gif"></p>
 
 
 >	origin/master is a remote tracking branch, it tells us what the master branch looks like at our remote or origin.
@@ -497,7 +497,7 @@ Commit these changes and push, you can do this!
 
 ## Collaboration
 
-<p align="center"><img src="collab.gif"></p>
+<p align="center"><img src="./assets/collab.gif"></p>
 
 You have seen the power of GitHub as a cloud storage platform for repositories. Now, let's build something together.
 
@@ -514,7 +514,7 @@ There are a few nuances associated with the process of collaborating on GitHub.
 >
 >   A clone is a copy of a repository. Technically, any two repositories that are linked (via remote) are said to be clones. 
 
-<p align="center"><img src="clone.png"></p>
+<p align="center"><img src="./assets/clone.png"></p>
 
 In our case, we created a clone of our local repository on the GitHub infrastructure.
 
@@ -660,7 +660,7 @@ You can now see the remote branch `origin/feature` has been added onto the list.
 >
 > A pull request is a request to the collaborators (owners) of a repository on GitHub to accept and hence pull changes made to the project b a 3rd party
 
-<p align="center"><img src="forks.jpg"></p>
+<p align="center"><img src="./assets/forks.jpg"></p>
 
 In order to submit a pull request, it is best to merge these changes from your branch into the `master` branch of your fork.
 

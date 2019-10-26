@@ -1,10 +1,10 @@
 # Basics Of Python
 
-<p align="center"><img src="python-logo.png"></p>
+<p align="center"><img src="./assets/python-logo.png"></p>
 
 # Lists
 
-<p align="center"><img src="horcruxes.jpg"></p>
+<p align="center"><img src="./assets/horcruxes.jpg"></p>
 
 
 A `list` is a collection of arbitrary objects, similar to arrays in other programming languages. A `list` is defined by enclosing a comma-separated sequence of objects in square brackets `[]`
@@ -123,7 +123,7 @@ Using step you can reverse the entire `list`
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
-<p align="center"><img src="harry-potter-sorting-hat.jpg"></p>
+<p align="center"><img src="./assets/harry-potter-sorting-hat.jpg"></p>
 
 Now that you have an understanding of `list`, let's now see some built-in operators
 
@@ -170,7 +170,7 @@ You can also use mathematical functions
 
 Keep in mind that a `list` can also be nested
 
-<p align="center"><img src="harry-potter-quidditch-balls.jpg"></p>
+<p align="center"><img src="./assets/harry-potter-quidditch-balls.jpg"></p>
 
 ```python
 >>> l = [[0, 1, 2], ['quaffle', 'bludger', 'bludger', 'snitch']] # l comprises of 2 nested lists
@@ -188,7 +188,7 @@ One fundamental concept of `list` is that it is mutable. This means you can chan
 
 We will use the following example
 
-<p align="center"><img src="harry-potter-spell-cast.jpg"></p>
+<p align="center"><img src="./assets/harry-potter-spell-cast.jpg"></p>
 
 ```python
 >>> spells = ["riddikulus", "obliviate", "sectumsempra", "avada kedavara", "alohomora", "lumos", "expelliarmus","wingardium leviosa", "accio", "expecto patronum"]
@@ -306,7 +306,7 @@ To empty a `list`
 []
 ```
 
-<p align="center"><img src="hippogriff.png"></p>
+<p align="center"><img src="./assets/hippogriff.png"></p>
 
 ---
 
@@ -361,7 +361,7 @@ professor
 headmaster
 ```
 
-<p align="center"><img src="prefect.jpg"></p>
+<p align="center"><img src="./assets/prefect.jpg"></p>
 
 We can now try to see `enumerate` function
 
@@ -397,7 +397,7 @@ Using `tuple` unpacking we can loop through with `enumerate`
 
 A dictionary is a collection of key-value pairs. The key is a _unique_ identifier that is mapped to a value, almost like a real-world dictionary where each word is a key and the definition is the value. You can define a dictionary using curly braces `{}`, a colon `:` separates each key from its value
 
-<p align="center"><img src="courses.jpg"></p>
+<p align="center"><img src="./assets/courses.jpg"></p>
 
 ```python
 >>> student = {'name': 'Harry', 'age': 14, 'courses': ['Charms', 'Defence Against the Dark Arts', 'Potions', 'Herbology']}	# dict
@@ -500,7 +500,7 @@ To empty a `dict`
 
 A `set` is an unordered collection with no duplicate elements. A `set` itself may be modified, but the elements of a set must be _immutable_.
 
-<p align="center"><img src="weasleys.png"></p>
+<p align="center"><img src="./assets/weasleys.png"></p>
 
 There are two ways to create a `set`
 
@@ -665,7 +665,7 @@ def greet():
 ...     print("Hello, Everyone!")
 ```
 
-<p align="center"><img src="hello.gif"></p>
+<p align="center"><img src="./assets/hello.gif"></p>
 
 To call a function, simply type the function name with appropriate parameters
 

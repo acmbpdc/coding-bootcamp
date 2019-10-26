@@ -37,8 +37,8 @@ optional arguments:
   -w , --width    New Width
 ```
 
-![Stranger Things](./stranger-things.jpg)
-![Stranger Things, Text](./stranger-things-text.png)
+![Stranger Things](./assets/stranger-things.jpg)
+![Stranger Things, Text](./assets/stranger-things-text.png)
 
 Using the `write` command for [Unix](https://en.wikipedia.org/wiki/Unix) systems, we can send anyone logged in on a server a picture this way.
 

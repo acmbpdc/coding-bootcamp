@@ -1,6 +1,6 @@
 # Basics Of Python
 
-<p align="center"><img src="python-logo.png"></p>
+<p align="center"><img src="./assets/python-logo.png"></p>
 
 # Motivation
 
@@ -10,7 +10,7 @@ Python is a high-level, interpreted, scripting language developed in the late 19
 
 	Python has grown in popularity in the last decade. The 2019 stack overflow developer survey ranks Python as the **4<sup>th</sup>** most popular language.
 
-	![](stackoverflow-developer-survey.png)
+	![](./assets/stackoverflow-developer-survey.png)
 
 *	Python is **interpreted**
 
