@@ -80,14 +80,6 @@ Note that all hints have a penalty that reduces your score.
 
 ## Attachments
 
-### CTF 1
-
-*   [PRIME CANDIDATE](./ctf-01/prime_candidate.zip)
-*   [IS THIS ENCRYPTION](./ctf-01/is_this_encryption.zip)
-*   [TIME TRAVEL](./ctf-01/time_travel.zip)
-*   [ESREVER](./ctf-01/esrever.zip)
-*   [NO ORIGIN](./ctf-01/no_origin.zip)
-*   [DREAM DEEPER](./ctf-01/dream_deeper.zip)
-*   [COLLISION](./ctf-01/collision.zip)
+### [CTF 1](./ctf-01/fbctf-attachments-02-11-2019.tgz)
 
 ### _CTF 2 (TBD)_

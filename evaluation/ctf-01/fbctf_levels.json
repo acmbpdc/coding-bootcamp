@@ -1,0 +1,243 @@
+{
+    "levels": [
+        {
+            "type": "flag",
+            "title": "COMRADES",
+            "active": false,
+            "description": "Access the server at 172.16.22.5 and find x, the number of users who registered in 2016 in the Computer Science (A7) Discipline\n\nFlag : CTF{x}",
+            "entity_iso_code": "RU",
+            "category": "FILE SYSTEM",
+            "points": 20,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 10,
+            "flag": "CTF{146}",
+            "hint": "If only there was a command that:  listed out all directories, applied a filter and listed out how many of such occurrences were found.  Too bad there isn't a single command that does that. How about you give up and smoke a pipe?",
+            "penalty": 10,
+            "links": [],
+            "attachments": []
+        },
+        {
+            "type": "flag",
+            "title": "STILL HIDING",
+            "active": false,
+            "description": "Somewhere in the server at 172.16.22.5 within the HOME directories of users registered in 2016, there is a hidden file named ctf-1-q2-flag.txt\n",
+            "entity_iso_code": "CA",
+            "category": "FILE SYSTEM",
+            "points": 30,
+            "bonus": 0,
+            "bonus_dec": 10,
+            "bonus_fix": 20,
+            "flag": "CTF{0h_5h17_y0u_f0und_m3}",
+            "hint": "If only there was a command that:  listed out all directories recursively and applied a filter  Too bad there isn't a single command that does that. Or is there? How about you give up and smoke a pipe again?",
+            "penalty": 15,
+            "links": [],
+            "attachments": []
+        },
+        {
+            "type": "flag",
+            "title": "PRIME CANDIDATE",
+            "active": false,
+            "description": "Inside the script is a set of 1 thousand randomly generated numbers between 1 and 1 million. Find x, the largest prime that is a factor of at least 1 of these numbers.\n\nFlag : CTF{x}",
+            "entity_iso_code": "US",
+            "category": "SCRIPTING",
+            "points": 40,
+            "bonus": 10,
+            "bonus_dec": 10,
+            "bonus_fix": 30,
+            "flag": "CTF{998161}",
+            "hint": "You should probably define a function that checks if a number is a prime or not to make things easy. You could make things faster by keeping track of primes.",
+            "penalty": 20,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "prime_candidate_bf68b8bdf4f3992fa04d5d2f2708743f.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "IS THIS ENCRYPTION?",
+            "active": false,
+            "description": "Inside the script is a string which is the ASCII encoding of the flag.\n",
+            "entity_iso_code": "CN",
+            "category": "SCRIPTING",
+            "points": 20,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 10,
+            "flag": "CTF{numb3r5_f0r_3v3ry7h1n6}",
+            "hint": "Use the int() & chr() functions",
+            "penalty": 10,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "is_this_encryption_42334aabe34f1eba1ce51d741c918b4b.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "TIME TRAVEL",
+            "active": false,
+            "description": "Travel back to find the flag.\nAre you the Hacker-Man?\n",
+            "entity_iso_code": "BR",
+            "category": "VERSION CONTROL",
+            "points": 30,
+            "bonus": 0,
+            "bonus_dec": 10,
+            "bonus_fix": 20,
+            "flag": "CTF{n37w0rk_4dm1n_cr135}",
+            "hint": "Use git diff commit1..commit2",
+            "penalty": 15,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "time_travel_d3b5429997c99584f1246bb433d038ef.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "THIS IS RESTRICTED",
+            "active": false,
+            "description": "What is x, the decimal triplet which describes the set the permissions for a directory where\n\nthe owner has read, write and execute permissions,\nthe group has read and execute permissions,\nthe rest have read permissions\n\nFlag : CTF{x}\n",
+            "entity_iso_code": "AU",
+            "category": "PERMISSIONS",
+            "points": 10,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 5,
+            "flag": "CTF{754}",
+            "hint": "Remember each decimal is governed by 3 bits for read, write and execute.  4 for read, 2 for write and 1 for execute.",
+            "penalty": 5,
+            "links": [],
+            "attachments": []
+        },
+        {
+            "type": "flag",
+            "title": "UPGRADE AVAILABLE",
+            "active": false,
+            "description": "What is x, the release of the kernel on the system at 172.16.22.5\n\nFlag : CTF{x}\n",
+            "entity_iso_code": "IN",
+            "category": "SYSTEM",
+            "points": 10,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 5,
+            "flag": "CTF{3.10.0-957.12.1.el7.x86_64}",
+            "hint": "Use the uname command",
+            "penalty": 5,
+            "links": [],
+            "attachments": []
+        },
+        {
+            "type": "flag",
+            "title": "ESREVER",
+            "active": false,
+            "description": "Inside the script is a string.\nReverse it.\n",
+            "entity_iso_code": "AR",
+            "category": "SCRIPTING",
+            "points": 10,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 5,
+            "flag": "CTF{.50m3b0dy_0nc3_70ld_m3_7h3_w0rld_15_60nn4_r0ll_m3.1_41n7_7h3_5h4rp357_700l_1n_7h3_5h3d.5h3_w45_l00k1n6_k1nd_0f_dumb_w17h_h3r_f1n63r_4nd_h3r_7humb.1n_7h3_5h4p3_0f_4n_l_0n_h3r_f0r3h34d.w3ll_7h3_y34r5_574r7_c0m1n6_4nd_7h3y_d0n7_570p_c0m1n6.f3d_70_7h3_rul35_4nd_1_h17_7h3_6r0und_runn1n6.d1dn7_m4k3_53n53_n07_70_l1v3_f0r_fun.y0ur_br41n_6375_5m4r7_bu7_y0ur_h34d_6375_dumb.50_much_70_d0_50_much_70_533.50_wh475_wr0n6_w17h_74k1n6_7h3_b4ck_57r3375.y0ull_n3v3r_kn0w_1f_y0u_d0n7_60.y0ull_n3v3r_5h1n3_1f_y0u_d0n7_6l0w.h3y_n0w_y0ur3_4n_4ll574r_637_y0ur_64m3_0n_60_pl4y.h3y_n0w_y0ur3_4_r0ck_574r_637_7h3_5h0w_0n_637_p41d.4nd_4ll_7h47_6l1773r5_15_60ld.0nly_5h0071n6_574r5_br34k_7h3_m0ld.175_4_c00l_pl4c3_4nd_7h3y_54y_17_6375_c0ld3r.y0ur3_bundl3d_up_n0w_w417_71ll_y0u_637_0ld3r.bu7_7h3_m3730r_m3n_b36_70_d1ff3r.jud61n6_by_7h3_h0l3_1n_7h3_5473ll173_p1c7ur3.7h3_1c3_w3_5k473_15_63771n6_pr377y_7h1n.7h3_w473r5_63771n6_w4rm_50_y0u_m16h7_45_w3ll_5w1m.my_w0rld5_0n_f1r3_h0w_4b0u7_y0ur5.7h475_7h3_w4y_1_l1k3_17_4nd_1_n3v3r_637_b0r3d.h3y_n0w_y0ur3_4n_4ll574r_637_y0ur_64m3_0n_60_pl4y.h3y_n0w_y0ur3_4_r0ck_574r_637_7h3_5h0w_0n_637_p41d.4ll_7h47_6l1773r5_15_60ld.0nly_5h0071n6_574r5_br34k_7h3_m0ld.h3y_n0w_y0ur3_4n_4ll574r_637_y0ur_64m3_0n_60_pl4y.h3y_n0w_y0ur3_4_r0ck_574r_637_7h3_5h0w_0n_637_p41d.4nd_4ll_7h47_6l1773r5_15_60ld.0nly_5h0071n6_574r5.50m3b0dy_0nc3_45k3d_c0uld_1_5p4r3_50m3_ch4n63_f0r_645.1_n33d_70_637_my53lf_4w4y_fr0m_7h15_pl4c3.1_541d_y3p_wh47_4_c0nc3p7.1_c0uld_u53_4_l177l3_fu3l_my53lf.4nd_w3_c0uld_4ll_u53_4_l177l3_ch4n63.w3ll_7h3_y34r5_574r7_c0m1n6_4nd_7h3y_d0n7_570p_c0m1n6.f3d_70_7h3_rul35_4nd_1_h17_7h3_6r0und_runn1n6.d1dn7_m4k3_53n53_n07_70_l1v3_f0r_fun.y0ur_br41n_6375_5m4r7_bu7_y0ur_h34d_6375_dumb.50_much_70_d0_50_much_70_533.50_wh475_wr0n6_w17h_74k1n6_7h3_b4ck_57r3375.y0ull_n3v3r_kn0w_1f_y0u_d0n7_60_60.y0ull_n3v3r_5h1n3_1f_y0u_d0n7_6l0w.h3y_n0w_y0ur3_4n_4ll574r_637_y0ur_64m3_0n_60_pl4y.h3y_n0w_y0ur3_4_r0ck_574r_637_7h3_5h0w_0n_637_p41d.4nd_4ll_7h47_6l1773r5_15_60ld.0nly_5h0071n6_574r5_br34k_7h3_m0ld.4nd_4ll_7h47_6l1773r5_15_60ld.0nly_5h0071n6_574r5_br34k_7h3_m0ld.}",
+            "hint": "For iterable[start:stop:skip], skip can be negative",
+            "penalty": 5,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "esrever_2adfe5611650481b3853f329f83d2c5b.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "NO ORIGIN",
+            "active": false,
+            "description": "There is a flag hidden somewhere in this repo.\nWait, maybe it's on the remote.\n",
+            "entity_iso_code": "GL",
+            "category": "VERSION CONTROL",
+            "points": 20,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 10,
+            "flag": "CTF{7h15_15_n07_4_url}",
+            "hint": "Use git remote",
+            "penalty": 10,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "no_origin_d8b6720ae815e3638dc996c222bd33b9.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "DREAM DEEPER",
+            "active": false,
+            "description": "Inside the script is a huge dictionary. It is really huge.\n\nStart with 'flag'. Work your way down till you can't.\n",
+            "entity_iso_code": "DZ",
+            "category": "SCRIPTING",
+            "points": 30,
+            "bonus": 20,
+            "bonus_dec": 10,
+            "bonus_fix": 20,
+            "flag": "CTF{c4l0rd3u5}",
+            "hint": "Update the variable for the key in such a way that the current value is the next key. If you don't get value (None) then the key is the flag.",
+            "penalty": 15,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "dream_deeper_b702e8c2b99ff43829e719c02a82c0b2.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "COLLISION",
+            "active": false,
+            "description": "Inside the script you will find 2 huge lists. They are extremely huge.\nThe flag is in both of these lists. \n",
+            "entity_iso_code": "SA",
+            "category": "SCRIPTING",
+            "points": 20,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 10,
+            "flag": "CTF{688i0wkpeo}",
+            "hint": "Convert both lists to sets.",
+            "penalty": 10,
+            "links": [],
+            "attachments": [
+                {
+                    "filename": "collision_e42a699fef6e0f9a7fca7829d61a1601.zip",
+                    "type": "application\/zip"
+                }
+            ]
+        },
+        {
+            "type": "flag",
+            "title": "HASH HASH BABY",
+            "active": false,
+            "description": "Find x, the id of the first commit on acmbpdc's coding-bootcamp repository\n\nFlag : CTF{x}",
+            "entity_iso_code": "SD",
+            "category": "VERSION CONTROL",
+            "points": 10,
+            "bonus": 0,
+            "bonus_dec": 5,
+            "bonus_fix": 5,
+            "flag": "CTF{fbc658352369e0d3f1b29ad0c7171a541c8d32ab}",
+            "hint": "Each commit is identified by a hash",
+            "penalty": 5,
+            "links": [],
+            "attachments": []
+        }
+    ]
+}
