@@ -1,38 +1,76 @@
 # Competitive Programming
 
+>   "Talk is cheap. Show me the code"
+>   - Linus Torvalds
+
+Competitive programming has two main components:
+
+*   **Design**
+
+    <p align="center"><img src="./assets/design.jpg" width="400"></p>
+
+    This requires problem-solving skills and involves mathematical thinking.
+    The designed algorithm has to be correct and efficient.
+    Theoretical knowledge of algorithms is important as a solution is typically a combination of well-known techniques and new insights.
+
+*   **Implementation**
+
+    <p align="center"><img src="./assets/implementation.jpg" width="400"></p>
+
+    This requires good programming skills.
+    Just knowing the idea of the solution is not enough; the implementation has to be precise.
+    Typically, time is of the essence and writing the code should not take too long.
+
 ## Motivation
-
-Competitive programming combines two topics:
-
-1.  The *design* of algorithms
-
-    Requires problem-solving skills and mathematical thinking. The designed algorithm has to be correct and efficient. Theoretical knowledge of algorithms is important as a solution is typically a combination of well-known techniques and new insights.
-
-2.  The *implementation* of algorithms
-
-    Requires good programming skills. Just knowing the idea of the solution is not enough, the implementation has to be precise. Typically, time is of the essence and writing the code should not take too long.
 
 Competitive programming has many benefits:
 
-*   Enhances problem-solving skills.
-*   Prepares you well for technical interviews.
-*   Helps you not just learn the fundamentals but actually implement.
-*   Collaborating in a team of programmers.
-*   It's fun!
+*   Participating in competitions enhances problem-solving skills.
+*   It prepares you well for technical interviews.
+*   Not only will you learn about the fundamentals in algorithm design, you will also be familiar with their implementations.
+*   You can make new friends when collaborating in a team of programmers
+*   It is a fun sport!
+
+<p align="center"><img src="./assets/motivation.gif"></p>
 
 ## Time Complexity
 
-The time complexity of an algorithm estimates how much time the algorithm will use for some input. The efficiency of algorithms is important in competitive programming. Generally, it is easy to design an algorithm that solves the problem slowly but it's challenging to write a fast algorithm. By calculating the time complexity, we can check whether our algorithm is fast enough without actually implementing it.
+The time complexity of an algorithm estimates how much time the algorithm will use for some input.
+The efficiency of algorithms is important in competitive programming.
 
-The time complexity is denoted using _O(...)_ where the 3 dots represent some function. Usually, the variable _n_ denotes the input size. For example, if the input is a `list` of numbers, _n_ will be the length of the `list`.
+<p align="center"><img src="./assets/time.gif"></p>
 
-Complexity classes:
+Generally, it is easy to design an algorithm that solves the problem slowly but it's challenging to write a fast algorithm.
 
-O(1) constant < O(log n) logarithmic < O(n) < linear < O(n log n) linearithmic < O(n²) quadratic < O(n³) cubic < O(2ⁿ) exponential < O(n!) factorial
+By calculating the time complexity, we can check whether our algorithm is fast enough without actually implementing it.
 
-Most sites these days allow 10⁸ operations per second, only a few sites still allow 10⁷ operations.
+The time complexity is often denoted in [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation).
 
-![](assets/complexity-chart.jpeg)
+A program would have a time complexity of _O(...)_ where the 3 dots represent some function.
+Usually, the variable _n_ denotes the input size.
+For example, if the input is a `list` of numbers, _n_ will be the length of the `list`.
+
+<p align="center"><img src="./assets/input.gif"></p>
+
+The following table shows some complexity classes in decreasing order of speed/efficiency:
+
+|Complexity  | Description  |
+|:-----------|:-------------|
+|`O(1)`      |`constant`    |
+|`O(long n)` |`logarithmic` |
+|`O(n)`      |`linear`      |
+|`O(n log n)`|`linearithmic`|
+|`O(n²)`     |`quadratic`   |
+|`O(n³)`     |`cubic`       |
+|`O(2ⁿ)`     |`exponential` |
+|`O(n!)`     |`factorial`   |
+
+
+<p align="center"><img src="./assets/complexity-chart.jpeg" height="400"></p>
+
+<p align="center"><img src="./assets/competitive.gif"></p>
+
+Most competitive programming websites that host competitions allow `10⁸` operations per second, while a few still allow `10⁷` operations.
 
 | Input Size | Required Time Complexity |
 |:----------:|:------------------------:|
@@ -44,9 +82,19 @@ Most sites these days allow 10⁸ operations per second, only a few sites still 
 | n ≤ 10⁸	| O(n) |
 | n is large | O(1) or O(log n) |
 
-## Climbing Stairs
+## Examples
+
+<p align="center"><img src="./assets/game.gif"></p>
+
+Let us do a few examples.
+
+### Problem 1 : Climbing Stairs
 
 Read the [problem statement](https://leetcode.com/problems/climbing-stairs/).
+
+<p align="center"><img src="./assets/stairs.gif"></p>
+
+#### Solution
 
 ```python
 class Solution:
@@ -59,11 +107,14 @@ class Solution:
         return f2
 ```
 
-## 2Sum
+### Problem 2 : 2Sum
 
 Read the [problem statement](https://leetcode.com/problems/two-sum/).
 
-### Brute Force
+#### Bad Solution
+
+
+This is a brute force approach
 
 ```python
 def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -73,7 +124,11 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
                 return [i, j]
 ```
 
-### Sort List
+<p align="center"><img src="./assets/brute-force.gif"></p>
+
+#### Better Solution
+
+This solution sorts the list first
 
 ```python
 def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -92,7 +147,9 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
             high -= 1
 ```
 
-### Dictionary
+#### Best Solution
+
+This solution uses a dictionary
 
 ```python
 def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -107,11 +164,13 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
 
 [3Sum](https://leetcode.com/problems/3sum/) is a variation to this problem.
 
-## Majority Element
+### Problem 3 : Majority Element
 
 Read the [problem statement](https://leetcode.com/problems/majority-element/).
 
-### Sort List
+#### Bad Solution
+
+This approach first sorts the list
 
 ```python
 class Solution:
@@ -120,7 +179,9 @@ class Solution:
         return nums[len(nums) // 2]
 ```
 
-### Dictionary
+#### Better Solution
+
+This approach uses a dictionary.
 
 ```python
 class Solution:
@@ -133,7 +194,9 @@ class Solution:
                 return num
 ```
 
-### Boyer-Moore Algorithm
+#### Best Solution
+
+This approach is based on the [Boyer-Moore Algorithm](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm)
 
 ```python
 def majorityElement(self, nums: List[int]) -> int:
@@ -150,11 +213,15 @@ def majorityElement(self, nums: List[int]) -> int:
     return m
 ```
 
+<p align="center"><img src="./assets/brilliant.gif"></p>
+
 [Majority Element II](https://leetcode.com/problems/majority-element-ii/) is a variation to this problem.
 
-## Longest Substring Without Repeating Characters
+### Problem 4 : Longest Substring Without Repeating Characters
 
 Read the [problem statement](https://leetcode.com/problems/longest-substring-without-repeating-characters/).
+
+#### Solution
 
 ```python
 def lengthOfLongestSubstring(self, s: str) -> int:
@@ -174,6 +241,8 @@ def lengthOfLongestSubstring(self, s: str) -> int:
 
 ## Practice
 
+<p align="center"><img src="./assets/practice.gif"></p>
+
 There are plenty of platforms for you to practice:
 
 *   [HackerRank](https://hackerrank.com)
@@ -189,8 +258,12 @@ There are plenty of platforms for you to practice:
 We covered:
 
 *   [Motivation](#motivation)
-*   [Climbing Stairs](#climbing-stairs)
-*   [2Sum](#2sum)
-*	[Majority Element](#majority-element)
-*	[Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)
+*   [Time Complexity](#time-complexity)
+*   [Examples](#examples)
+    *   [Climbing Stairs](#problem-1--climbing-stairs)
+    *   [2Sum](#problem-2--2sum)
+    *	[Majority Element](#problem-3--majority-element)
+    *	[Longest Substring Without Repeating Characters](#problem-4--longest-substring-without-repeating-characters)
 *   [Practice](#practice)
+
+<p align="center"><img src="./assets/summary.webp"></p>
