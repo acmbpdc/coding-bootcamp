@@ -13,11 +13,13 @@ Web development has evolved over time. The tools are constantly evolving. Fortun
 
 It is recommended to use a text editor like :
 
-*   [Visual Studio Code](https://code.visualstudio.com/)
+*   [Visual Studio Code](https://code.visualstudio.com/),
 *   [Atom](https://atom.io/) or
 *   [Sublime Text](https://www.sublimetext.com/)
 
 for the purpose of this session. Such text editors provide an easy workflow and hence are the industry standard tools.
+
+You can find the source code of the website at each stage [here](site/).
 
 ---
 
@@ -395,6 +397,40 @@ Now, your web pages should look similar to these:
 
 ---
 
+## Dynamism
+
+We can make our static pages dynamic with some JavaScript.
+
+<p align="center"><img src="assets/dynamism.gif" height="200"></p>
+
+Let us add some functionality that changes the image on click.
+
+*   Create a directory `assets/js`
+*   Create a file `script.js` with the following content:
+
+    ```js
+    var main = "https://avatars1.githubusercontent.com/u/38982451?s=460&v=4";
+    var other = "https://66.media.tumblr.com/35d3a02f4691f8c2c75fbc4ef3365988/tumblr_p1ja1iqXyS1wkxnj3o9_1280.png";
+
+    function changeImage() {
+        if (document.getElementById("profile").src == other) {
+            document.getElementById("profile").src = main;
+        } else {
+            document.getElementById("profile").src = other;
+        }
+    }
+    ```
+*   Link the script by adding the following to the `index.html` `head` tag:
+
+    ```html
+    <script type="text/javascript" src="assets/js/script.js" ></script>
+    ```
+*   Add a `onclick` attribute to the `#profile` `img` and set it to `changeImage()`
+
+Test it out.
+
+---
+
 ## Deployment
 
 <p align="center"><img src="assets/start-deploy.png" height="200"></p>
@@ -438,38 +474,6 @@ Host your website on GitHub. It is free. It is easy.
 
 ---
 
-## Dynamism
-
-We can make our static pages dynamic with some JavaScript.
-
-<p align="center"><img src="assets/dynamism.gif" height="200"></p>
-
-Let us add some functionality that changes the image on click.
-
-*   Create a directory `assets/js`
-*   Create a file `script.js` with the following content:
-
-    ```js
-    var main = "https://avatars1.githubusercontent.com/u/38982451?s=460&v=4";
-    var other = "https://66.media.tumblr.com/35d3a02f4691f8c2c75fbc4ef3365988/tumblr_p1ja1iqXyS1wkxnj3o9_1280.png";
-
-    function changeImage() {
-        if (document.getElementById("profile").src == other) {
-            document.getElementById("profile").src = main;
-        } else {
-            document.getElementById("profile").src = other;
-        }
-    }
-    ```
-*   Link the script by adding the following to the `index.html` `head` tag:
-
-    ```html
-    <script type="text/javascript" src="assets/js/script.js" ></script>
-    ```
-*   Add a `onclick` attribute to the `#profile` `img` and set it to `changeImage()`
-
-Test it out.
-
 ## Discover
 
 This session was meant to introduce you to the basic technologies behind websites. In practice, these solutions are very naive.
@@ -508,6 +512,8 @@ Here are a few popular frameworks.
 *   [Go](https://golang.org/)
 
 For a step by step guide on becoming a web developer, check out [this video](https://www.youtube.com/watch?v=UnTQVlqmDQ0) by [Brad Traversy](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) in which he showcases advance technologies that are the current industry standards.
+
+---
 
 ## Summary
 
