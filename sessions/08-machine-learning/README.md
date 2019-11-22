@@ -82,7 +82,7 @@ Above image contains samples from the dataset. Each image is 28px wide 28px high
 >
 >   <p align="center"><img src="assets/color.jpeg" height="200"></p>
 >
->   Color images have a different input shape. For example, if we had an RGB image meaning 3 color channels, the train set shape would change to  `[60000, 28, 28, 3]`. You can learn more about color channels on [this](https://en.wikipedia.org/wiki/Channel_(digital_image) wikipedia page.
+>   Color images have a different input shape. For example, if we had an RGB image meaning 3 color channels, the train set shape would change to  `[60000, 28, 28, 3]`. You can learn more about color channels on [this](https://en.wikipedia.org/wiki/Channel_(digital_image)) wikipedia page.
 
 Our goal is to train a model that will take one input image and predict a score for each of the 10 possible classes that the image may belong to, the 10 classes represent the digits 0 to 9 inclusively. Keras contains many of the popular datasets which are present `keras.datasets`, the entire list can be found [here](https://keras.io/datasets/).
 
@@ -375,3 +375,4 @@ We covered:
 *   [Model Architecture](#model-architecture)
 *   [Train Model](#train-model)
 *   [Save & Load Model](#save-&-load-model)
+*   [Code Modularity](#code-modularity)
