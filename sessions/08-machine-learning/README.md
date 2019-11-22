@@ -1,36 +1,58 @@
 # Machine Learning
 
-## Motivation
-
-### What is Machine Learning?
-
 Machine learning is the science of getting computers to act without being explicity programmed. It is an application of Artificial Intelligence with the primary aim to allow computers to learn automatically without human intervention.
 
-### Why should you learn ML?
+<p align="center"><img src="assets/intro.gif" height="200"></p>
 
-*   #### Data is power.
-    
-    Harnessing the power of data gives you extreme power. All organizations are racing to use data to reshape their technology and business. However, few people actually have the skills to use data in the right way.
+## Motivation
 
-*   #### ML is linked directly to data science.
+*   #### Machine Learning is linked directly to Data Science
 
-    ML career helps you to become competent in both the fields. It means you can analyse data, preprocess and get insights, and use results to train an ML model to predict results.
+    A Machine Learning career helps you to become competent in both the fields. It means you can analyse data, preprocess and get insights, and use results to train an Machine Learning model to predict results.
 
-*   #### The pay is let's say amazing.
+*   #### Data is Power
 
-    The average machine learning engineer earns close to $121,000 according to [glassdoor](https://www.glassdoor.com/Salaries/machine-learning-engineer-salary-SRCH_KO0,25.htm).
+    Harnessing the data gives you extreme power. All organizations are racing to use data to reshape their technology and business. However, few people actually have the skills to use data in the right way.
 
-*   #### It can be daunting at first but it's a lot of fun.
+    <p align="center"><img src="assets/power.gif" height="200"></p>
+
+*   #### The pay is, let's say, Amazing
+
+    The average machine learning engineer earns close to `$121,000` according to [Glassdoor](https://www.glassdoor.com/Salaries/machine-learning-engineer-salary-SRCH_KO0,25.htm).
+
+*   #### It can be daunting at first but it's a lot of Fun.
 
     AI is transforming the way we live today. Being part of this change and contributing by building exciting applications is a lot of fun! It also makes you look hella cool.
 
-## Introduction
+## Setup
 
-We'll build a model to recognize hardwritten digits with a convolutional neural network. First, we'll train the model by having it _look_ at thousands of handwritten digits with their corresponding labels. Then, we'll evaluate how well our model performs by using test images that the model has never seen.
+We will be using Google Colab.
 
-The task at hand is known as classification as we are trying to classify a number ranging from 0 to 9 for a given handwritten image. We train the model by showing it many input images along with their corresponding label, this is known as supervised learning.
+<p align="center"><img src="assets/colab.gif" height="200"></p>
 
-To build deep learning models, we have many frameworks that contain most of the code to handle the underlying intricacies. One such popular framework is Keras written in python that we will be using today. It focuses on being user-friendly, modular and extensible. In addition, to enhance the efficiency and give more control, Keras can work on top of TensorFlow which is highly used in production level models. In essence, we will be writing our code in Keras and execute it with the help of TensorFlow's functionality.
+> Explain how to set that shit up
+
+## Walkthrough
+
+We'll build a model to recognize hardwritten digits with a convolutional neural network.
+
+First, we'll train the model by having it _look_ at thousands of handwritten digits with their corresponding labels.
+
+Then, we'll evaluate how well our model performs by using test images that the model has never seen.
+
+<p align="center"><img src="assets/madness.gif" height="200"></p>
+
+The task at hand is known as **classification** as we are trying to classify a  given handwritten image to a number ranging from `0` to `9`.
+
+We train the model by showing it many input images along with their corresponding label; this is known as **supervised learning**.
+
+To build deep learning models, we have many frameworks that contain most of the code to handle the underlying intricacies.
+
+One such popular framework is [Keras](https://keras.io/) written in python that we will be using today. It focuses on being user-friendly, modular and extensible.
+
+<p align="center"><img src="assets/libraries.gif" height="200"></p>
+
+In addition, to enhance the efficiency and control, Keras can work on top of [TensorFlow](https://www.tensorflow.org/) which is widely used in production. In essence, we will be writing our code in Keras and execute it with the help of TensorFlow's functionality.
 
 Let's start by importing `keras`
 
@@ -57,6 +79,8 @@ Above image contains samples from the dataset. Each image is 28px wide 28px high
 >   *   RGB - 3 channels: red, green, and blue
 >   *   HSV - 3 channels: hue, saturation, value
 >   *   CMYK - 4 channels: cyan, magenta, yellow, and black
+>
+>   <p align="center"><img src="assets/color.jpeg" height="200"></p>
 >
 >   Color images have a different input shape. For example, if we had an RGB image meaning 3 color channels, the train set shape would change to  `[60000, 28, 28, 3]`. You can learn more about color channels on [this](https://en.wikipedia.org/wiki/Channel_(digital_image) wikipedia page.
 
@@ -117,6 +141,8 @@ test_xs = test_xs / 255
 
 ## Model Architecture
 
+<p align="center"><img src="assets/architecture.gif" height="200"></p>
+
 There are two ways to create a model in Keras:
 
 *   `Sequential`: Allows you to create a layer-by-layer model. It is called sequential because its inputs flow straight down to its output.
@@ -140,7 +166,7 @@ Next we define our layers. Each layer in our network tries to build onto the wor
 
 >   #### Goal of Layers
 >
->   Layers extract useful information from the data fed into them. The goal is to have meaningful representations for our problem. 
+>   Layers extract useful information from the data fed into them. The goal is to have meaningful representations for our problem.
 >   Take a problem of recognizing parts of a human face from a selfie. The first layer may extract the person from the background. The second layer may extract parts of the human body from the person such as the arms, legs, face and so on. The third layer may extract parts of the face itself like the eyes, nose, mouth, hair and ears. The fourth layer may extract more in depth features such as the wrinkles, dark circles, dimples and more.
 
 The first layer in our model is the Convolutional Layer. This layer acts as the eyes of our neural network, in other words, it allows our model to see
@@ -158,6 +184,7 @@ model.add(Conv2D(input_shape=(28, 28, 1),
 >   #### Activation Function
 >
 >   The activation function is used to transform the output of the layer. Essentially, it decides if the neuron fires (activates) or not. This "firing" is related with the importance of a feature in affecting the overall output.
+> <p align="center"><img src="assets/activation.gif" height="200"></p>
 
 Working on large images can be a problem. Take a high resolution color image of 1080px wide 720px high. Since it is an RGB image the total number of parameters is 1080×720×3 = 2,332,800 parameters just for the input image alone! As you keep adding layers, the number of parameters goes on increasing. It is recommended not to exceed 10 million parameters for the entire model as this can have computation as well as other issues (like overfitting).
 
@@ -214,7 +241,7 @@ model.add(Dense(units=10,
 
 That completes our model architecture. But wait, we aren't done just yet! Before our model is ready to be trained, it still needs a few more adjustments. This is done at the model's compile step:
 
-*   Loss function: Measures how accurate our model is during training. 
+*   Loss function: Measures how accurate our model is during training.
 *   Optimizer: Decides on how the model gets updated based on the loss value. Choosing the right function is important as it plays a key role in updating the weights of our model.
 *   Metrics: Help in monitoring how well the model is performing. We will use accuracy, the number of correct images classified out of the total images from the validation set.
 <!-- *   Learning Rate: Controls how fast or slow the optimizer updates the model. A value too small may take our model a long time to learn. Conversely, a value too large updates our model too quickly making it unstable. -->
@@ -260,9 +287,11 @@ model.fit(train_xs, train_ys,
 
 Now we evaluate the accuracy of our model on the test dataset, i.e., data that it has never seen.
 
+<p align="center"><img src="assets/train.gif" height="200"></p>
+
 >   #### Validation set vs. Test set
 >
->   Validation set helps in assessing the model during 
+>   Validation set helps in assessing the model during
 >   In our case, during the training the validation dataset was the test dataset itself. Hence, the accuracy we get during evaluation will be the same as the model accuracy during the training process.
 
 ```python
@@ -287,6 +316,8 @@ This will save the model weights and architecture into a single file.
 >
 >   An H5 file saves data in the Hierarchical Data Format (HDF). This file format is designed to store and organize large amounts of data. This is the reason Keras uses the `HDF5`/`H5` file format to store the model data.
 
+<p align="center"><img src="assets/load.gif" height="200"></p>
+
 We have now saved the model, but how do we load it? Keras has a module `keras.models` which contains a function for our requirement
 
 ```python
@@ -306,7 +337,11 @@ model.summary()
 
 ## Code Modularity
 
-Modularity is the concept of breaking a system into separate independent components. It's generally nice to separate the different parts of our project as it helps to avoid clutter and makes our code look cleaner. It also helps for future improvements as we can work on individual components themselves instead of being confused with a mess of codebase.
+Modularity is the concept of breaking a system into separate independent components. It's generally nice to separate the different parts of our project as it helps to avoid clutter and makes our code look cleaner.
+
+<p align="center"><img src="assets/modular.gif" height="200"></p>
+
+It also helps for future improvements as we can work on individual components themselves instead of being confused with a mess of codebase.
 
 Add the code from each part to the following functions
 
