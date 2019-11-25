@@ -1,10 +1,20 @@
 # Machine Learning
 
-Machine learning is the science of getting computers to act without being explicity programmed. It is an application of Artificial Intelligence with the primary aim to allow computers to learn automatically without human intervention.
+Machine learning (ML) is the science of getting computers to act without being explicity programmed. It is an application of Artificial Intelligence (AI) with the primary aim to allow computers to learn automatically without human intervention.
 
 <p align="center"><img src="assets/intro.gif" height="200"></p>
 
+In traditional programming, the goal is to write a program which takes some data as input evaluates it and gives an output. However, in machine learning you feed the computer data and tell the corresponding output in the hope of finding patterns, the result is a program which we didn't write. The goal is to focus on how the computer learns and perform a task on its own rather than us explicitly programming it to do the task.
+
+<p align="center"><img src="assets/machine-learning.png"></p>
+
 ## Motivation
+
+*   #### ML is growing fast
+
+    Machine learning has been around since the 1950s. However, only in the last decade has it grown immensely popular. This is due to the increase in the amount of data and the processing power we have today. Considering these two factors, ML is going to keep growing over the next years.
+
+    <p align="center"><img src="assets/deep-learning-graph.png" height="200"></p>
 
 *   #### Machine Learning is linked directly to Data Science
 
@@ -26,11 +36,9 @@ Machine learning is the science of getting computers to act without being explic
 
 ## Setup
 
-We will be using Google Colab.
+We will be using [Google Colab](https://colab.research.google.com/).
 
 <p align="center"><img src="assets/colab.gif" height="200"></p>
-
-> Explain how to set that shit up
 
 ## Walkthrough
 
@@ -357,12 +365,15 @@ def create_model():
 def train():
     # Code for Train Model
 
-(train_xs, train_ys), (test_xs, test_ys) = load_data()
-model = create_model()
-train()
+# Will run only if file is the entry point
+# Allows file to be imported without executing below code
+if __name__ == '__main__':
+    (train_xs, train_ys), (test_xs, test_ys) = load_data()
+    model = create_model()
+    train()
 
-# Save model as 'model.h5' in current directory
-model.save('model.h5')
+    # Save model as 'model.h5' in current directory
+    model.save('model.h5')
 ```
 
 ## Summary

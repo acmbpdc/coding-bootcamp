@@ -1,6 +1,5 @@
 import keras
-import numpy as np
-from keras.datasets import mnist
+from keras.datasets import mnist, fashion_mnist
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
@@ -83,13 +82,16 @@ def train():
 	test_loss, test_accuracy = model.evaluate(test_xs, test_ys, verbose=0)
 	print('Test loss:', test_loss)
 	print('Test accuracy:', test_accuracy)
+	
 
 
+# Will run only if file is the entry point
+# Allows file to be imported without executing below code
+if __name__ == '__main__':
+	(train_xs, train_ys), (test_xs, test_ys) = load_data()
+	model = create_model()
+	model.summary()
+	train()
 
-(train_xs, train_ys), (test_xs, test_ys) = load_data()
-model = create_model()
-model.summary()
-train()
-
-# Save model as 'model.h5' in current directory
-model.save('model.h5')
+	# Save model as 'model.h5' in current directory
+	model.save('model.h5')
