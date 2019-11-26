@@ -2,7 +2,7 @@
 
 Machine learning (ML) is the science of getting computers to act without being explicity programmed. It is an application of Artificial Intelligence (AI) with the primary aim to allow computers to learn automatically without human intervention.
 
-<p align="center"><img src="assets/intro.gif" height="200"></p>
+<p align="center"><img src="assets/intro-2.gif" height="200"></p>
 
 In traditional programming, the goal is to write a program which takes some data as input evaluates it and gives an output. However, in machine learning you feed the computer data and tell the corresponding output in the hope of finding patterns, the result is a program which we didn't write. The goal is to focus on how the computer learns and perform a task on its own rather than us explicitly programming it to do the task.
 
@@ -30,6 +30,8 @@ In traditional programming, the goal is to write a program which takes some data
 
     The average machine learning engineer earns close to `$121,000` according to [Glassdoor](https://www.glassdoor.com/Salaries/machine-learning-engineer-salary-SRCH_KO0,25.htm).
 
+<p align="center"><img src="assets/aspirations.gif" height="200"></p>
+
 *   #### It can be daunting at first but it's a lot of Fun.
 
     AI is transforming the way we live today. Being part of this change and contributing by building exciting applications is a lot of fun! It also makes you look hella cool.
@@ -38,8 +40,6 @@ In traditional programming, the goal is to write a program which takes some data
 
 We will be using [Google Colab](https://colab.research.google.com/).
 
-<p align="center"><img src="assets/colab.gif" height="200"></p>
-
 ## Walkthrough
 
 We'll build a model to recognize hardwritten digits with a convolutional neural network.
@@ -47,8 +47,6 @@ We'll build a model to recognize hardwritten digits with a convolutional neural 
 First, we'll train the model by having it _look_ at thousands of handwritten digits with their corresponding labels.
 
 Then, we'll evaluate how well our model performs by using test images that the model has never seen.
-
-<p align="center"><img src="assets/madness.gif" height="200"></p>
 
 The task at hand is known as **classification** as we are trying to classify a  given handwritten image to a number ranging from `0` to `9`.
 
@@ -134,6 +132,7 @@ Sometimes you might get an error since you are trying to divide an `int` and get
 print(train_xs.dtype)   # uint8
 print(test_xs.dtype)    # uint8
 ```
+<p align="center"><img src="assets/not-force.gif" height="200"></p>
 
 A safer way is to cast the `xs` into a `float` value before you do the divison
 
@@ -192,6 +191,7 @@ model.add(Conv2D(input_shape=(28, 28, 1),
 >   #### Activation Function
 >
 >   The activation function is used to transform the output of the layer. Essentially, it decides if the neuron fires (activates) or not. This "firing" is related with the importance of a feature in affecting the overall output.
+
 > <p align="center"><img src="assets/activation.gif" height="200"></p>
 
 Working on large images can be a problem. Take a high resolution color image of 1080px wide 720px high. Since it is an RGB image the total number of parameters is 1080×720×3 = 2,332,800 parameters just for the input image alone! As you keep adding layers, the number of parameters goes on increasing. It is recommended not to exceed 10 million parameters for the entire model as this can have computation as well as other issues (like overfitting).
@@ -274,6 +274,7 @@ model.summary()
 
 ## Train Model
 
+<p align="center"><img src="assets/complete-your-training.gif" height="200"></p>
 
 To train the model, we call `model.fit` method—so called because it _fits_ the models to the training data. Before that, we need to define a few parameters:
 
@@ -292,10 +293,9 @@ model.fit(train_xs, train_ys,
           shuffle=True,
           verbose=1)
 ```
-
 Now we evaluate the accuracy of our model on the test dataset, i.e., data that it has never seen.
 
-<p align="center"><img src="assets/train.gif" height="200"></p>
+<p align="center"><img src="assets/much-to-learn.gif" height="200"></p>
 
 >   #### Validation set vs. Test set
 >
@@ -308,6 +308,8 @@ test_loss, test_accuracy = model.evaluate(test_xs, test_ys, verbose=0)
 print('Test loss:', test_loss)
 print('Test accuracy:', test_accuracy)
 ```
+
+<p align="center"><img src="assets/fail-me-again.gif" height="200"></p>
 
 ## Save & Load Model
 
