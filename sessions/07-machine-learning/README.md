@@ -377,6 +377,16 @@ if __name__ == '__main__':
     # Save model as 'model.h5' in current directory
     model.save('model.h5')
 ```
+## The ACM AI SIG
+
+<p align="center"><img src="assets/ACM-AI.png" height="200"></p>
+
+* **ACM AI** is a SIG ( Special Interest Group ) where student members of ACM who share interests in artificial intelligence come together on a  regular basis to meet, discuss and solve problems together.
+* It builds on top of what you have just learnt in the coding bootcamp.
+* SIG Sessions are held during the **even semester** of the academic year.
+* **Visit the official ACM AI page on our website** [here](www.acmbpdc.org/ai). 
+* You can find **resources** from previous sessions along with **member showcases**.
+
 
 ## Summary
 

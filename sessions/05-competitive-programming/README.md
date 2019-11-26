@@ -253,6 +253,16 @@ There are plenty of platforms for you to practice:
 *   [TopCoder](https://www.topcoder.com/)
 *   [HackerEarth](https://www.hackerearth.com/)
 
+## The ACM CP SIG
+
+<p align="center"><img src="assets/ACM-CP.png" height="200"></p>
+
+* **ACM CP** is a SIG ( Special Interest Group ) where student members of ACM who share interests in algorithms and competitive programming come together on a  regular basis to meet, discuss and solve problems together.
+* It builds on top of what you have just learnt in the coding bootcamp.
+* SIG Sessions are held during the **even semester** of the academic year.
+* **Visit the official ACM CP page on our website** [here](www.acmbpdc.org/cp). 
+* You can find **resources** from previous sessions along with **member showcases**.
+
 ## Summary
 
 We covered:
