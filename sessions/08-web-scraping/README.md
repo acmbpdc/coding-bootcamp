@@ -1,22 +1,22 @@
 # Web Scraping
 
-Web scraping, web harvesting, or web data extraction is data scraping used for extracting data from websites.
-
-It involves fetching a web page and extracting information from it.
+Web scraping, web harvesting, or web data extraction is data scraping used for quickly and efficiently extracting data from websites. It involves fetching a web page and extracting information from it.
 
 ## Motivation
 
-*   Websites have a lot of data. This data, if extracted properly, can be very useful in the realm of Machine Learning
-*   Search engine engineering relies a lot on Web Scraping and other forms of Information Retrieval
-*   It can be used to automate mundane tasks
+*   Websites have a lot of data. If extracted properly, this data  can be very useful in the realm of [Machine Learning](https://github.com/acmbpdc/coding-bootcamp/tree/master/sessions/07-machine-learning)
+*   Search engine engineering relies a lot on Web Scraping and other forms of [Information Retrieval](https://github.com/acmbpdc/openlib.cs/tree/master/courses/CSF469)
+*   It can be used to automate mundane search tasks
 *   Learning how to web scrape involves exploring many related domains, such as Cybersecurity, Web Development, Web Services, & Natural Language Processing
 
 ## Setup
 
 We will be using the following Python libraries:
 
-*   [`requests`](https://pypi.org/project/requests/) - *HTTP Requests for Humans*
+*   [`requests`](https://pypi.org/project/requests/) - [*HTTP Requests*](https://www.w3schools.com/tags/ref_httpmethods.asp) *for Humans*
 *   [`beautifulsoup4`](https://pypi.org/project/beautifulsoup4/) - *Scraping Library*
+
+<p align="center"><img src="assets/beautiful.gif" height="200"></p>
 
 ```bash
 pip3 install requests beautifulsoup4 # installs the libraries
@@ -31,7 +31,7 @@ web-scraping
 
 ## Scraper
 
-We will build a crawler that surfs across [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and finds the shortest directed path between two articles.
+We will build a crawler that surfs across [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and finds the [shortest directed path](https://brilliant.org/wiki/shortest-path-algorithms/) between two articles.
 
 ```python
 import argparse
@@ -52,6 +52,7 @@ def wiki(title):
     """
     return f"https://en.wikipedia.org/wiki/{title}"
 ```
+<p align="center"><img src="assets/later.gif" height="200"></p>
 
 Let us define a function that retrieves a page, and returns a list of titles for all articles that appear as links on the page.
 
@@ -69,6 +70,7 @@ def get_pages(title):
     response = requests.get(wiki(title))
     soup = BeautifulSoup(response.content, "html.parser")
 ```
+<p align="center"><img src="assets/scan.gif" height="200"></p>
 
 >   *   `requests.get(url)` retrieves the resource at the `url` using an `HTTP GET Request`
 >
@@ -103,9 +105,11 @@ def get_pages(title):
 >       *   `:` : indicates a url for a Wikipedia meta page
 >       *   `#` : indicates a url for a page with an anchor attached. We choose to not include these
 
+<p align="center"><img src="assets/fight.gif" height="200"></p>
+
 ## Crawler
 
-The crawler uses a Breadth-First Search traversal to *crawl* across the site.
+The crawler uses a [Breadth-First Search](https://brilliant.org/wiki/breadth-first-search-bfs/) traversal to *crawl* across the site.
 
 ```python
 def shortest_path(start, end):
@@ -152,6 +156,7 @@ def shortest_path(start, end):
 	print(' \u2192 '.join(reversed(path)))
 	print(f'Length: {len(path)-1}')
 ```
+<p align="center"><img src="assets/flip.gif" height="200"></p>
 
 ## Interface
 
@@ -175,6 +180,8 @@ if __name__ == "__main__":
 ```
 
 You can find the complete source code [here](src/main.py)
+
+<p align="center"><img src="assets/reconstruction.gif" height="200"></p>
 
 ## Usage
 
@@ -203,6 +210,7 @@ python main.py -s Web_Scraping -e Hell
 ```
 Ouput placeholder
 ```
+<p align="center"><img src="assets/end.gif" height="200"></p>
 
 ## Summary
 

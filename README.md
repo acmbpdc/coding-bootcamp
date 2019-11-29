@@ -17,7 +17,7 @@ This bootcamp is intended to provide the audience with a foundation in using som
 | 5 | [**Competitive Programming**](sessions/05-competitive-programming) |<p align="center"><img src="assets/sherlock.jpg" width="300"></p>|
 | 6 | [**Introductory Web Development**](sessions/06-introductory-web-development) |<p align="center"><img src="assets/pokemon.webp" width="300"></p>|
 | 7 | [**Machine Learning**](sessions/07-machine-learning) |<p align="center"><img src="assets/starwars.png" width="300"></p>|
-| 8 | [**Web Scraping**](sessions/08-web-scraping) |<p align="center"><img src="assets/house-md.jpg" width="300"></p>|
+| 8 | [**Web Scraping**](sessions/08-web-scraping) |<p align="center"><img src="assets/batman.jpg" width="300"></p>|
 
 ## Evaluation
 
