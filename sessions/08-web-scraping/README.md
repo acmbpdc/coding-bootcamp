@@ -24,7 +24,7 @@ We will be using the following Python libraries:
 <p align="center"><img src="assets/beautiful.gif" height="200"></p>
 
 ```bash
-pip3 install requests bs4	# install the libraries
+pip3 install requests bs4 pandas os	# install the libraries
 ```
 
 Create the following project layout:
@@ -42,8 +42,10 @@ Import the dependencies
 
 ```python
 import re
+import os
 import requests
 import argparse
+import pandas as pd
 from bs4 import BeautifulSoup
 from collections import deque
 ```
@@ -221,6 +223,85 @@ def get_pages(title):
 
 <p align="center"><img src="assets/fight.gif" height="200"></p>
 
+## Celebrity Details
+
+In this section we will learn how to extract information for celebrities. An example is shown below
+
+<p align="center"><img src="assets/keanu-reeves.png"></p>
+
+We will extract the following parameters
+
+```python
+header = ['Name', 'Nick Name', 'Born', 'Birth Place', 'Nationality', 'Residence', 'Occupation', 'Parent(s)', 'Website']
+```
+
+First we extract the table
+
+```python
+body = soup.find('table', class_='infobox').tbody
+```
+
+Most of the parameters can be extracted using the class attributes since they are unique
+
+```python
+name = body.find(class_='fn').text
+nickname = body.find(class_='nickname').text
+born = body.find(class_='bday').text
+birthplace = body.find(class_='birthplace').text
+residence = body.find(class_='label').text
+occupation = body.find(class_='role').li.text
+url = body.find(class_='url').text
+```
+
+However, the parent names are not under a unique class attribute
+
+```python
+<tr>
+	<th scope="row">Parent(s)</th>
+	<td>
+		<div class="plainlist">
+			<ul>
+				<li>
+					<a class="mw-redirect" href="/wiki/William_Henry_Gates_Sr."
+						title="William Henry Gates Sr.">William Henry Gates Sr.</a>
+				</li>
+				<li>
+					<a href="/wiki/Mary_Maxwell_Gates" title="Mary Maxwell Gates">Mary Maxwell Gates</a>
+				</li>
+			</ul>
+		</div>
+	</td>
+</tr>
+```
+
+We can still extract these by searching for the string `Parent(s)` and then getting the parent tag. We can now access the `li` tags
+
+```python
+parent = body.find('th', string='Parent(s)').parent
+father, mother = [li.text for li in parent.find_all('li')]
+```
+
+You can now write them into a csv file if you prefer. For this, you will need to import the necessary modules first
+
+```python
+import os
+import pandas as pd
+```
+
+Create a pandas DataFrame and write it into a csv file
+
+```python
+csv = 'path/to/file.csv'
+row = [name, nickname, born, birthplace, residence, occupation, father, mother, url]	# row of column values
+df = pd.DataFrame(row).T	# create a pandas DataFrame
+
+if not os.path.isfile(csv):	# create a new file if it does not exist
+	header = ['Name', 'Nickname', 'Born', 'Birthplace', 'Residence', 'Occupation', 'Father', 'Mother', 'Website']	# column names
+	df.to_csv(csv, header=header, index=False)
+else:						# append to existing csv file
+	df.to_csv(csv, mode='a', header=False, index=False)
+```
+
 ## Crawler
 
 The crawler uses a [Breadth-First Search](https://brilliant.org/wiki/breadth-first-search-bfs/) traversal to *crawl* across the site.
@@ -331,6 +412,7 @@ We covered:
 *	[Setup](#setup)
 *	[Scraper](#scrapper)
 *	[Code Modularity](#code-modularity)
+*	[Celebrity Details](#celebrity-details)
 *	[Crawler](#crawler)
 *	[Interface](#interface)
 *	[Usage](#usage)
