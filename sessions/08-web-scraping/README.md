@@ -4,22 +4,27 @@ Web scraping, web harvesting, or web data extraction is data scraping used for q
 
 ## Motivation
 
-*   Websites have a lot of data. If extracted properly, this data  can be very useful in the realm of [Machine Learning](https://github.com/acmbpdc/coding-bootcamp/tree/master/sessions/07-machine-learning)
-*   Search engine engineering relies a lot on Web Scraping and other forms of [Information Retrieval](https://github.com/acmbpdc/openlib.cs/tree/master/courses/CSF469)
-*   It can be used to automate mundane search tasks
-*   Learning how to web scrape involves exploring many related domains, such as Cybersecurity, Web Development, Web Services, & Natural Language Processing
+*   Websites have a lot of data. If extracted properly, this data  can be very useful in the realm of [Machine Learning](https://github.com/acmbpdc/coding-bootcamp/tree/master/sessions/07-machine-learning).
+*   Search engine engineering relies a lot on Web Scraping and other forms of [Information Retrieval](https://github.com/acmbpdc/openlib.cs/tree/master/courses/CSF469).
+*   It can be used to automate mundane search tasks.
+*   Learning how to web scrape involves exploring many related domains, such as Cybersecurity, Web Development, Web Services, & Natural Language Processing.
 
 ## Setup
 
 We will be using the following Python libraries:
 
 *   [`requests`](https://pypi.org/project/requests/) - [*HTTP Requests*](https://www.w3schools.com/tags/ref_httpmethods.asp) *for Humans*
+	
+	Allows to navigate and access resources on the web.
+
 *   [`beautifulsoup4`](https://pypi.org/project/beautifulsoup4/) - *Scraping Library*
+
+	Allows to parse and extract certain information from a resource.
 
 <p align="center"><img src="assets/beautiful.gif" height="200"></p>
 
 ```bash
-pip3 install requests beautifulsoup4 # installs the libraries
+pip3 install requests bs4	# install the libraries
 ```
 
 Create the following project layout:
@@ -33,14 +38,153 @@ web-scraping
 
 We will build a crawler that surfs across [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) and finds the [shortest directed path](https://brilliant.org/wiki/shortest-path-algorithms/) between two articles.
 
+Import the dependencies
+
 ```python
+import re
+import requests
 import argparse
 from bs4 import BeautifulSoup
 from collections import deque
-import re
-import requests
+```
+
+<p align="center"><img src="assets/later.gif" height="200"></p>
 
 
+<!-- 
+Where would you like to add these?
+
+>   *   `requests.get(url)` retrieves the resource at the `url` using an `HTTP GET Request`
+>
+>   *   `BeautifulSoup(content, "html.parser")` returns an object that has information regarding the `<html>` tag, with all of its descendants and text content. 
+
+>   *   `soup.find_all("a", attrs={"href": re.compile("^/wiki/")})` returns a list of `<a>` tags, which have `href`s that start with `/wiki/`
+>   *   `page` is set to the rest of the link
+-->
+
+Using the `get` function in the requests module, you can access a webpage
+
+```python
+response = requests.get('https://en.wikipedia.org/wiki/Batman')	# pass the webpage url as an argument to the function
+```
+
+```python
+print(response.status_code)	# 200 OK response if the webpage is present
+print(response.headers)		# contains the date, size, information about the server and type of file the server is sending to the client
+print(resonse.content)		# page content or the html source
+```
+
+>	#### Status Codes
+>
+>	There are five classes of response status codes:
+>	*	1xx informational - relatively new, only indicates the request has been received
+>	*	2xx successful - request received and accepted successfully
+>	*	3xx redirection - client must take some action in order to complete the request
+>	*	4xx client error - request from client contains bad syntax or access to invalid resources
+>	*	5xx server error - server incapable of fulfilling the request
+>
+>	For more information, you can refer to [this](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) Wikipedia page.
+
+To parse the content or the page source, we will use the `BeautifulSoup` module. To do so, first create a `BeautifulSoup` object
+
+```python
+soup = BeautifulSoup(response.content, 'html.parser')
+```
+
+We can now access specific information directly. To get the first link in the page
+
+```python
+link = soup.a
+```
+
+To get all the links on the page
+
+```python
+links = soup.find_all('a')	# anchor tag contains a link
+```
+
+Let's work on the last link in the page
+
+```python
+link = links[-1]	# get the last anchor tag
+```
+
+The link is a `Tag` object corresponding to the anchor tag. Each `Tag` object contains a few properties
+
+```python
+print(link.name)	# name of the tag
+print(link.attrs)	# attributes of the tag
+```
+
+The anchor tag or `<a>` has an `href` attribute which contains the actual link to the page
+
+```python
+print(link.attrs['href'])	# accessing directly using attrs
+print(link['href'])			# accessing by treating like a dict
+```
+
+Trying to access an attribute that does not exist causes an error. A better way is to use the `get` method
+
+```python
+print(link['id'])		# error
+print(link.get('id'))	# returns value if exists else None and does not throw an error
+```
+
+To find only those anchor tags that contain the `href` attribute
+
+```python
+links = soup.find_all('a', href=True)	# anchor tag contains a href attribute
+```
+
+You can also specify a regex to match links that fit a requirement. In our case, we only want to keep links to Wikipedia pages. We also want to exclue the links that point to some documentation (such as the _Help_ or _About_ page). If you notice, the links have a specific format. 
+
+Links we need since they point to other Wikipedia pages
+
+```
+/wiki/DC_Thomson
+/wiki/Chris_KL-99
+/wiki/Wing_(DC_Comics)
+```
+
+Links we don't need since they contain documentation, media or point to other websites
+
+```
+/wiki/Category:American_culture
+/wiki/File:Batman_DC_Comics.png
+www.wikimediafoundation.org
+```
+
+Hence, we can use the following regex `^/wiki/[^.:#]*$`. This is explained below:
+
+*	`^` denotes the start of the string
+*	`^/wiki/` the link _starts_ with `/wiki/`
+*	`[]` denotes a character set that is allowed, `[^]` denotes a character set that is *not* allowed. The `^` symbol negates the character set if present at the start
+*	`[c]*` denotes 0 or more occurrences of a character c, `[^c]*` denotes 0 or more occurrences of _all_ characters except c
+*	`$` denotes the end of the string
+
+The above regex means the link starts with `/wiki/` has 0 or more characters that are not `.` or `:` or `#` symbol till the end of the string.
+
+```python
+links = soup.find_all('a', href=re.compile('^/wiki/[^.:#]*$'))	# find all anchor tags that contain the href attribute with the specified regex
+```
+
+>	#### Special characters
+>
+>	*   `.` - indicates a url for a media file. For example, '/wiki/url/to/file/batman.jpg'.
+>	*   `:` - indicates a url for a Wikipedia meta page. For example, '/wiki/Help:Contents'.
+>	*   `#` - indicates a url for a page with an anchor attached, we chose to not include these.
+
+Don't forget, we still have to extract the title from the `href` link since the above returns all the anchor tags
+
+```python
+pages = set([link.get('href')[len("/wiki/"):] for link in links])
+```
+
+## Code Modularity
+
+Let's add a helper function to return the entire url given a title
+
+```python
 def wiki(title):
     """Takes a title and wraps it to form a https://en.wikipedia.org URL
 
@@ -52,58 +196,28 @@ def wiki(title):
     """
     return f"https://en.wikipedia.org/wiki/{title}"
 ```
-<p align="center"><img src="assets/later.gif" height="200"></p>
 
-Let us define a function that retrieves a page, and returns a list of titles for all articles that appear as links on the page.
+<p align="center"><img src="assets/scan.gif" height="200"></p>
 
+Let us organize our code into a function that retrieves a page, and returns a list of titles for all articles that appear as links on the page
 
 ```python
 def get_pages(title):
-    """Returns a set of wikipedia articles linked in a wikipedia article
+	"""Returns a set of wikipedia articles linked in a wikipedia article
 
-    Arguments:
-        title {str} -- Article title
+	Arguments:
+		title {str} -- Article title
 
-    Returns:
-        {set()} -- A set of wikipedia articles
-    """
-    response = requests.get(wiki(title))
-    soup = BeautifulSoup(response.content, "html.parser")
+	Returns:
+		{set()} -- A set of wikipedia articles
+	"""
+	response = requests.get(wiki(title))
+	soup = BeautifulSoup(response.content, 'html.parser')
+	links = soup.find_all('a', href=re.compile('^/wiki/[^.:#]*$'))
+	pages = set([link.get('href')[len("/wiki/"):] for link in links])
+
+	return pages
 ```
-<p align="center"><img src="assets/scan.gif" height="200"></p>
-
->   *   `requests.get(url)` retrieves the resource at the `url` using an `HTTP GET Request`
->
->
->       You can try the following lines of code in the `python` shell environment
->       ```python
->       import requests
->       response = requests.get("https://en.wikipedia.org/wiki/Web_scraping")
->       print(resonse.content)
->       ```
->
->   *   `BeautifulSoup(content, "html.parser")` returns an object that has information regarding the `<html>` tag, with all of its descendants and text content.
-
-```python
-    pages = set()
-
-    for link in soup.find_all("a", attrs={"href": re.compile("^/wiki/")}):
-        page = link.get("href")[len("/wiki/"):]
-
-        if any([x in page for x in[".", ":", "#"]]):
-            continue
-
-        pages.add(page)
-
-    return pages
-```
-
->   *   `soup.find_all("a", attrs={"href": re.compile("^/wiki/")})` returns a list of `<a>` tags, which have `href`s that start with `/wiki/`
->   *   `page` is set to the rest of the link
->   *   check if `page` has any special characters:
->       *   `.` : indicates a url for a media file
->       *   `:` : indicates a url for a Wikipedia meta page
->       *   `#` : indicates a url for a page with an anchor attached. We choose to not include these
 
 <p align="center"><img src="assets/fight.gif" height="200"></p>
 
@@ -207,9 +321,6 @@ Try the program
 python main.py -s Web_Scraping -e Hell
 ```
 
-```
-Ouput placeholder
-```
 <p align="center"><img src="assets/end.gif" height="200"></p>
 
 ## Summary
@@ -218,7 +329,8 @@ We covered:
 
 *	[Motivation](#motivation)
 *	[Setup](#setup)
-*	[Scrapper](#scrapper)
+*	[Scraper](#scrapper)
+*	[Code Modularity](#code-modularity)
 *	[Crawler](#crawler)
 *	[Interface](#interface)
 *	[Usage](#usage)
