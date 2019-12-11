@@ -93,3 +93,9 @@ Note that all hints have a penalty that reduces your score.
 ### [CTF 1](./ctf-01/fbctf-attachments-02-11-2019.tgz)
 
 ### [CTF 2](./ctf-02/fbctf-attachments-11-12-2019.tgz)
+
+## Solutions
+
+### [CTF 1](https://github.com/kelvindecosta/ctf-levels/blob/master/games/2019-10-29-coding-bootcamp-ctf-1)
+
+### [CTF 2](https://github.com/kelvindecosta/ctf-levels/blob/master/games/2019-12-11-coding-bootcamp-ctf-2)
