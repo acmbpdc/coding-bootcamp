@@ -92,4 +92,4 @@ Note that all hints have a penalty that reduces your score.
 
 ### [CTF 1](./ctf-01/fbctf-attachments-02-11-2019.tgz)
 
-### _CTF 2 (TBD)_
+### [CTF 2](./ctf-02/fbctf-attachments-11-12-2019.tgz)
