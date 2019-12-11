@@ -12,16 +12,24 @@ Part 1:
 *   Basics of Python [Part 1](../sessions/02-basics-of-python) + [Part 2](../sessions/03-basics-of-python)
 *   [Git Workshop](../sessions/04-git-workshop)
 
-_Part 2 (TBD)_
+Part 2:
+
+*   [Competitive Programming](../sessions/05-competitive-programming)
+*   [Introductory Web Development](../sessions/06-introductory-web-development)
+*   [Machine Learning](../sessions/07-machine-learning)
+*   [Web Scraping](../sessions/08-web-scraping)
 
 ## Schedule
 
 *   **4:00 pm - 4:15 pm** : _Briefing_
-*   **4:15 pm - 5:15 pm** : _Evaluation_
-*   **5:15 pm - 5:30 pm** : _Break_
-*   **5:30 pm - 6:00 pm** : _Solutions_
- 
+*   **4:15 pm - 6:00 pm** : _Evaluation_
+*   **6:00 pm - 6:15 pm** : _Solutions_
+
 ## Register
+
+>   Students who have registered for the previous CTF may not register. You may login directly instead.
+>
+>   In case there are students who have forgotten their login credentials, there will be a small period during the briefing when they may reset it with an admin.
 
 *   Navigate to the [Coding Bootcamp CTF site](https://bit.ly/2onTwAS)
 *   Provide the following details:
@@ -31,9 +39,11 @@ _Part 2 (TBD)_
     *   Enter a **password** for authentication.
     *   Either choose one of the given images or upload your own **team logo**
 
->   Remember your access credentials for this site, since all evaluation components will be conducted here.
+>   Although the login is activated, the tasks will go live at the start of the evaluation
 
 ## Instructions
+
+> Please familiarize yourself with the site. Knowing how to navigate will benefit you a lot.
 
 Navigate to the **Tutorial** once you are logged in.
 

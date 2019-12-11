@@ -2,6 +2,10 @@
 
 This is the repository for the **Coding Bootcamp** programming workshop organized by [ACM](https://github.com/acmbpdc)
 
+## Evaluation
+
+Navigate to [`evaluation`](./evaluation/) to find out more.
+
 ## Overview
 
 This bootcamp is intended to provide the audience with a foundation in using some important tools in the industry.
@@ -18,10 +22,6 @@ This bootcamp is intended to provide the audience with a foundation in using som
 | 6 | [**Introductory Web Development**](sessions/06-introductory-web-development) |<p align="center"><img src="assets/pokemon.webp" width="300"></p>|
 | 7 | [**Machine Learning**](sessions/07-machine-learning) |<p align="center"><img src="assets/starwars.png" width="300"></p>|
 | 8 | [**Web Scraping**](sessions/08-web-scraping) |<p align="center"><img src="assets/batman.jpg" width="300"></p>|
-
-## Evaluation
-
-Navigate to [`evaluation`](./evaluation/) to find out more.
 
 ## Instructors
 
