@@ -57,7 +57,7 @@ The following table shows some complexity classes in decreasing order of speed/e
 |Complexity  | Description  |
 |:-----------|:-------------|
 |`O(1)`      |`constant`    |
-|`O(long n)` |`logarithmic` |
+|`O(log n)`  |`logarithmic` |
 |`O(n)`      |`linear`      |
 |`O(n log n)`|`linearithmic`|
 |`O(n²)`     |`quadratic`   |

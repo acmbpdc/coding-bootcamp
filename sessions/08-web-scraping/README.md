@@ -24,7 +24,7 @@ We will be using the following Python libraries:
 <p align="center"><img src="assets/beautiful.gif" height="200"></p>
 
 ```bash
-pip3 install requests bs4 pandas os	# install the libraries
+pip3 install requests bs4 pandas	# install the libraries
 ```
 
 Create the following project layout:

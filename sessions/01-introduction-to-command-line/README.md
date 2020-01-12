@@ -538,7 +538,7 @@ These characters represent the permissions for a particular entity.
 >   *   The first character describes the type of entity
 >       *   ***-*** for a **regular** file
 >       *   ***d*** for **directory**
->       *   ***c*** for **charcater** special file
+>       *   ***c*** for **character** special file
 >       *   ***b*** for **block** special file
 >       *   ***l*** for symbolic **links** 
 >       
@@ -614,7 +614,7 @@ An important feature of Bash is the pipe system
 You can combine `grep` and `wc` to combine their functionalities
 
 ```bash
-grep "a" plot.txt | wc -c # shows the number of occurrences of 'a' in 'plot.txt'
+grep -o "a" plot.txt | wc -l # shows the number of occurrences of 'a' in 'plot.txt'
 ```
 
 #### `history`
