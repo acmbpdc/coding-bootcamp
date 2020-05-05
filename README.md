@@ -1,6 +1,6 @@
 # Coding Bootcamp
 
-This is the repository for the **Coding Bootcamp** programming workshop organized by [ACM](https://github.com/acmbpdc)
+This is the repository for the **Coding Bootcamp** programming workshop organized by [ACM](https://github.com/acmbpdc) with sponsorship from [Microsoft](https://studentpartners.microsoft.com).
 
 ## Evaluation
 
@@ -25,7 +25,7 @@ This bootcamp is intended to provide the audience with a foundation in using som
 
 ## Instructors
 
-This workshop is conducted by :
+This workshop is conducted by:
 
 *   [Kelvin DeCosta](https://github.com/kelvindecosta)
 *   [Mohammed Shoaib](https://github.com/Mohammed-Shoaib)

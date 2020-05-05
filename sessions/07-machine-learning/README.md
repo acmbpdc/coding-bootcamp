@@ -6,7 +6,7 @@ Machine learning (ML) is the science of getting computers to act without being e
 
 In traditional programming, the goal is to write a program which takes some data as input evaluates it and gives an output. However, in machine learning you feed the computer data and tell the corresponding output in the hope of finding patterns, the result is a program which we didn't write. The goal is to focus on how the computer learns and perform a task on its own rather than us explicitly programming it to do the task.
 
-<p align="center"><img src="assets/machine-learning.png"></p>
+<p align="center"><img src="assets/machine-learning.png" width="400"></p>
 
 ## Motivation
 
@@ -14,7 +14,7 @@ In traditional programming, the goal is to write a program which takes some data
 
     Machine learning has been around since the 1950s. However, only in the last decade has it grown immensely popular. This is due to the increase in the amount of data and the processing power we have today. Considering these two factors, ML is going to keep growing over the next years.
 
-    <p align="center"><img src="assets/deep-learning-graph.png" height="200"></p>
+    <p align="center"><img src="assets/deep-learning-graph.png" width="400"></p>
 
 *   #### Machine Learning is linked directly to Data Science
 
@@ -74,7 +74,7 @@ We will be using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. This da
 >
 >   MNIST is an acronym that stands for the Modified National Institute Of Standards and Technology. One of the researchers is Yann LeCun who is now the VP and Chief AI scientist at Facebook.
 
-![](assets/mnist.png)
+<p align="center"><img src="assets/mnist.png" width="400"></p>
 
 Above image contains samples from the dataset. Each image is 28px wide 28px high and has 1 color channel as it is in grayscale (0-255). There are 60,000 train images and 10,000 test images. Hence, the shape of training set is `[60000, 28, 28, 1]` and the shape of test set is `[10000, 28, 28, 1]`.
 
@@ -174,7 +174,7 @@ Next we define our layers. Each layer in our network tries to build onto the wor
 >   #### Goal of Layers
 >
 >   Layers extract useful information from the data fed into them. The goal is to have meaningful representations for our problem.
->   Take a problem of recognizing parts of a human face from a selfie. The first layer may extract the person from the background. The second layer may extract parts of the human body from the person such as the arms, legs, face and so on. The third layer may extract parts of the face itself like the eyes, nose, mouth, hair and ears. The fourth layer may extract more in depth features such as the wrinkles, dark circles, dimples and more.
+>   Take a problem of recognizing parts of a human face from a selfie. The first layer may extract the person from the background. The second layer may extract parts of the human body from the person such as the arms, legs, face and so on. The third layer may extract parts of the face itself like the eyes, nose, mouth, hair and ears. The fourth layer may extract more in-depth features such as the wrinkles, dark circles, dimples and more.
 
 The first layer in our model is the Convolutional Layer. This layer acts as the eyes of our neural network, in other words, it allows our model to see
 
@@ -194,9 +194,16 @@ model.add(Conv2D(input_shape=(28, 28, 1),
 
 > <p align="center"><img src="assets/activation.gif" height="200"></p>
 
-Working on large images can be a problem. Take a high resolution color image of 1080px wide 720px high. Since it is an RGB image the total number of parameters is 1080×720×3 = 2,332,800 parameters just for the input image alone! As you keep adding layers, the number of parameters goes on increasing. It is recommended not to exceed 10 million parameters for the entire model as this can have computation as well as other issues (like overfitting).
+Working on large images can be a problem. For example, take a high-resolution color image of width 1080px and height 720px. Since a color image contains 3 channels (RGB), the total number of parameters is _1080×720×3 = 2,332,800_ parameters just for the input image alone! As you keep adding more layers, the number of parameters goes on increasing. It is recommended not to exceed _10 million_ parameters for the entire model as this can have computation as well as other issues (like overfitting).
 
-A resolve to decrease the number of parameters is a technique called pooling. Pooling layers allow us to downsample our feature map by summarizing the features. Two common pooling methods are average pooling and max pooling which summarize by averaging the values in the feature map and choosing the highest activated feature respectively.
+A resolve to decrease the number of parameters is a technique called pooling. Pooling layers allow us to downsample our feature map by summarizing the features. Two common pooling methods are given below:
+
+*   Average Pooling — replaces each path in the feature map by its average value.
+*   Max Pooling — replaces each patch in the feature map by its max value.
+
+<p align="center"><img src="assets/max-vs-average-pooling.png" height="400"></p>
+
+For image data, max pooling tends to work better because there could be some extreme and important features (like edges) which get smoothened out in average pooling.
 
 ```python
 # Pooling layer to halve the output from previous layer
@@ -223,7 +230,7 @@ model.add(Flatten())
 
 The conv layers are used to extract the features from our data. However, our goal is use these features to figure the class label. This is where we use _fully-connected_ layers.
 
-![](assets/fully-connected-layer.png)
+<p align="center"><img src="assets/fully-connected-layer.png" height="400"></p>
 
 They help to link the features together and predict the class label of our data. This is equivalent to the `Dense` layer in Keras.
 
